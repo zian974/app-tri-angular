@@ -15,13 +15,23 @@ export class TaxrefFiltersModel {
 }
 
 export interface Taxon {
-  fullNameHtml: string
-  id: number
-  parentId: number
-  referenceId: number
-  referenceNameHtml: string
-  scientificName: string
+
 }
+
+
+export class Taxon {
+  fullNameHtml: string = '';
+  id?: number;
+  parentId?: number;
+  referenceId?: number;
+  referenceNameHtml?: string;
+  scientificName: string = '';
+
+  public constructor(init?:Partial<Taxon>) {
+    Object.assign(this, init);
+  }
+}
+
 
 export interface TaxrefHttpResponse {
   _embedded: {

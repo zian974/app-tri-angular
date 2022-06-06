@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { AbstractControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Taxon } from 'src/app/modules/flores/modules/taxref/taxref.model';
 import { TriForm } from '../../forms/triForm';
 import { Tri, TriModel } from '../../models/tri';
 import { TrisService } from '../../services/tris.service';
@@ -13,8 +14,9 @@ import { TrisService } from '../../services/tris.service';
 })
 export class TriEditComponent implements OnInit {
 
-  public data: { tri: TriModel } = {
+  public data: { tri: TriModel, selectedTaxon: Taxon } = {
     tri: new TriModel(),
+    selectedTaxon: new Taxon()
   }
 
   public triForm = new TriForm( this.fb );
@@ -44,6 +46,10 @@ export class TriEditComponent implements OnInit {
       ( response: Tri ) => {
         this.data.tri = new TriModel({ ...response });
         this.triForm.patchValue(response);
+        this.data.selectedTaxon = new Taxon({
+          referenceId: this.data.tri.cd_ref,
+          scientificName: this.data.tri.nom_botanique,
+        });
         this.cdRef.markForCheck();
       }
     )
@@ -62,13 +68,10 @@ export class TriEditComponent implements OnInit {
         controls[ctrl].markAsDirty();
 
         if ( controls[ctrl].status !== 'VALID' ) {
-          console.log(controls[ctrl].errors)
+          console.log(ctrl, controls[ctrl].errors)
         }
 
       }
-
-console.log(this.triForm.fg.value);
-
       return;
     };
 
@@ -77,6 +80,11 @@ console.log(this.triForm.fg.value);
         this.triForm.patchValue(response);
       }
     );
+  }
+
+  onTaxonSelect( taxon: Taxon ) {
+    this.triForm.nom_botanique.setValue(taxon.scientificName);
+    this.triForm.cd_ref.setValue(taxon.referenceId);
   }
 
 }

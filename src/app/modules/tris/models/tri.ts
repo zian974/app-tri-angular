@@ -32,13 +32,13 @@ export interface Tri {
 
 export class TriModel {
 
-  id: number|null;
+  id?: number;
 
-  recolte_id: number|null;
+  recolte_id?: number;
 
   num_accession: string;
 
-  cd_ref: number|null;
+  cd_ref: number;
   nom_botanique: string;
 
   tri_date: Date;

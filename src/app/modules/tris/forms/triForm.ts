@@ -27,6 +27,11 @@ export class TriForm {
     id: [ null , [ Validators.pattern('[0-9]*') ] ],
 
     /**
+     * @property cd_ref du taxon
+     */
+     cd_ref: [ null , [ Validators.pattern('[0-9]*') ] ],
+
+    /**
      * @property Nom botanique de l'espèce triées
      */
     nom_botanique: [ "", [Validators.required,] ],
@@ -161,6 +166,7 @@ export class TriForm {
    *
    */
   get id() { return this.fg.get('id') as FormControl; };
+  get cd_ref() { return this.fg.get('cd_ref') as FormControl; };
   get nom_botanique(): FormControl { return this.fg.get('nom_botanique') as FormControl; };
   get num_accession(): FormControl { return this.fg.get('num_accession') as FormControl; };
   get tri_date(): FormControl { return this.fg.get('tri_date') as FormControl; };

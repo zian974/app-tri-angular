@@ -37,12 +37,10 @@
           <!-- Nom botanique -->
           <div class="form-group mb-3">
             <label for="nom_botanique" class="form-label">Nom botanique *</label>
-            <app-taxref></app-taxref>
+            <app-taxref [selectedTaxon]="data.selectedTaxon" (taxonSelected)="onTaxonSelect($event)"></app-taxref>
 
-
-            <input type="text" class="form-control" id="nom_botanique"
+            <input type="hidden" id="nom_botanique"
                    formControlName="nom_botanique" required>
-
             <div  *ngIf="(triForm.nom_botanique?.invalid && (triForm.nom_botanique?.dirty || triForm.nom_botanique?.touched))"
                   class="invalid-feedback d-block">
               <div *ngIf="triForm.nom_botanique?.errors?.['required']">
