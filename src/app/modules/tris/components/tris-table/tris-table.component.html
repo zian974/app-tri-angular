@@ -1,0 +1,48 @@
+<div id="trisList" class="card">
+
+  <tris-filters (filtersChanged)="onFiltersChanged($event)"></tris-filters>
+
+  <div class="table-responsive">
+    <table class="table table-sm table-hover table-nowrap card-table">
+      <thead>
+        <tr>
+          <th>
+            <!-- <div class="form-check mb-n2">
+              <input class="form-check-input list-checkbox-all" id="listCheckboxAll" type="checkbox">
+              <label class="form-check-label" for="listCheckboxAll"></label>
+            </div> -->
+          </th>
+          <th>
+            <span class="list-sort text-muted">Nom botanique</span>
+          </th>
+          <th>
+            <span class="list-sort text-muted">Date de tri</span>
+          </th>
+          <th>
+            <span class="list-sort text-muted">Nombre</span>
+          </th>
+          <th>
+            <span class="list-sort text-muted">Poids</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data.tris.items">
+          <td>
+            <!-- <div class="form-check">
+              <input class="form-check-input list-checkbox" id="listCheckboxOne" type="checkbox">
+              <label class="form-check-label" for="listCheckboxOne"></label>
+            </div> -->
+          </td>
+          <td>
+            <a [routerLink]="['/tris/tri-edit',{id: item.id}]" class="item-name text-reset">
+              <span>{{item.nom_botanique}}</span>
+            </a>
+          </td>
+          <td><span>{{item.tri_date | date:'dd/MM/yyyy'}}</span></td>
+          <td><span>{{item.graines_nb}}</span></td>
+          <td><span>{{item.graines_pds}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

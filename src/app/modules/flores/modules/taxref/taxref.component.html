@@ -1,0 +1,38 @@
+<form #agentsForm="ngForm">
+  <input type="hidden" id="size" name="size"
+         [(ngModel)]="data.filters.size">
+  <input type="text" class="form-control mb-2" id="term" name="term"
+         required
+         [(ngModel)]="data.filters.term">
+
+  <div class="card TaxaFilterContainer" *ngIf="data.states.listVisible"
+         style="position: absolute; inset: 0px 1rem auto 1rem; transform: translate(0px, 64px);">
+      <div class="list-group my-n3">
+        <div class="list-group-item" *ngFor="let espece of data.Taxa; trackBy: trackBy"
+             (click)="onClick(espece)">
+          <div class="row">
+            <div class="col ms-n2">
+              <!-- <h5 class="mb-1">{{espece.term}}</h5> -->
+              <p class="small text-gray-700 mb-0">
+                {{ espece.scientificName }}
+              </p>
+              <small class="text-muted">
+                <!-- {{espece.email}} -->
+              </small>
+            </div>
+          </div> <!-- / .row -->
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+
+      <!-- <div>{{ espece.term}} - {{espece.nom}} {{espece.prenom}}</div> -->
+      <div>
+        <button class="btn btn-outline" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          (click)="onRemove(0)">
+          <span _ngcontent-ggo-c50="" class="material-symbols-outlined" style="font-size: 1rem;" > close </span>
+        </button>
+      </div>
+

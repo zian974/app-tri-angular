@@ -1,0 +1,319 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb text-upper-small">
+    <li class="breadcrumb-item"><a [routerLink]="['/tris']">Tris</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Tri</li>
+  </ol>
+</nav>
+
+<div class="header">
+  <div class="header-body">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="header-title text-truncate">
+          <ng-container *ngIf="triForm.id?.value; else newTri">
+            Modification tri
+          </ng-container>
+          <ng-template #newTri> Nouveau tri </ng-template>
+        </h1>
+      </div>
+      <div class="col-auto">
+        <button type="button" label="Delete" class="btn btn-danger ms-2 d-flex" (click)="deleteItem()"
+                [disabled]="!data.tri.id">
+          <span class="material-symbols-outlined">
+            delete_forever
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form name="stagiaireForm" [formGroup]="triForm.fg" (ngSubmit)="submitItem()">
+
+        <div  class="col-md-6" >
+
+          <!-- Nom botanique -->
+          <div class="form-group mb-3">
+            <label for="nom_botanique" class="form-label">Nom botanique *</label>
+            <app-taxref></app-taxref>
+
+
+            <input type="text" class="form-control" id="nom_botanique"
+                   formControlName="nom_botanique" required>
+
+            <div  *ngIf="(triForm.nom_botanique?.invalid && (triForm.nom_botanique?.dirty || triForm.nom_botanique?.touched))"
+                  class="invalid-feedback d-block">
+              <div *ngIf="triForm.nom_botanique?.errors?.['required']">
+                Veuillez saisir/sélectionner un nom botanique
+              </div>
+            </div>
+          </div>
+
+          <!-- Numéro d'accession -->
+          <div class="form-group col-md-6 g-0 mb-3">
+            <label for="num_accession" class="form-label">Numéro d'accession *</label>
+            <input type="text" class="form-control" id="num_accession"
+                  formControlName="num_accession" required>
+
+            <div  *ngIf="(triForm.num_accession?.invalid && (triForm.num_accession?.dirty || triForm.num_accession?.touched))"
+                  class="invalid-feedback d-block">
+              <div *ngIf="triForm.num_accession?.errors?.['required']">
+                Veuillez saisir/sélectionner un numéro d'accession
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div  class="col-md-6" >
+
+          <!-- Date de tri -->
+          <div class="form-group mb-3">
+            <label for="tri_date" class="form-label">Date de tri *</label>
+            <input type="date"
+                   pattern="^(\d{4}-\d{2}-\d{2}(.*))?"class="form-control" id="tri_date"
+                   formControlName="tri_date" required>
+
+            <div  *ngIf="(triForm.tri_date?.invalid && (triForm.tri_date?.dirty || triForm.tri_date?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.tri_date?.errors?.['required']">
+                Veuillez saisir/sélectionner une date
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent(s) -->
+          <div class="form-group mb-3">
+            <label for="agents" class="form-label">Agent(s)</label>
+            <agents-select [formInput]="triForm.agents" [selectedAgents]="data.tri.agents"></agents-select>
+          </div>
+
+          <!-- Origine du lot -->
+          <div class="form-group mb-3">
+            <label for="tri_origin" class="form-label">Origine du lot</label>
+          </div>
+
+        </div>
+
+      <h3>Fruits</h3>
+
+      <div class="row col-md-6">
+        <!-- <div class="col-md-6"> -->
+          <!-- Poids -->
+          <div class="col-md-6 form-group mb-3">
+            <label for="fruits_pds" class="form-label">Poids *</label>
+            <input type="number" step="0.0001" class="form-control" id="fruits_pds" name="fruits_pds"
+                   formControlName="fruits_pds" required>
+
+            <div  *ngIf="(triForm.fruits_pds?.invalid && (triForm.fruits_pds?.dirty || triForm.fruits_pds?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.fruits_pds?.errors?.['required']">
+                Veuillez saisir/sélectionner un poids
+              </div>
+              <div *ngIf="triForm.fruits_pds?.errors?.['pattern']">
+                Le poids indiqué est invalide
+              </div>
+            </div>
+          </div>
+
+          <!-- Nombre -->
+          <div class="col-md-6 form-group mb-3">
+            <label for="fruits_nb" class="form-label"> Nombre *</label>
+            <input type="number" step="1" class="form-control" id="fruits_nb"
+                   formControlName="fruits_nb" required>
+
+            <div  *ngIf="(triForm.fruits_nb?.invalid && (triForm.fruits_nb?.dirty || triForm.fruits_nb?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.fruits_nb?.errors?.['required']">
+                Veuillez saisir/sélectionner une quantité
+              </div>
+              <div *ngIf="triForm.fruits_nb?.errors?.['pattern']">
+                La quantité indiquée est invalide
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+
+      <div class="row">
+          <!-- Etat -->
+          <div class="col-md-4 form-group mb-3">
+            <label for="fruits_etat" class="form-label">État</label>
+          </div>
+      </div>
+
+      <h3>Graines</h3>
+
+      <div class="row">
+
+          <!-- Poids total -->
+          <div class="col-md-3 form-group mb-3">
+            <label for="graines_pds" class="form-label">Poids total *</label>
+            <input type="number" step="0.0001" class="form-control" id="graines_pds"
+                   formControlName="graines_pds" required>
+
+            <div  *ngIf="(triForm.graines_pds?.invalid && (triForm.graines_pds?.dirty || triForm.graines_pds?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_pds?.errors?.['required']">
+                Veuillez saisir/sélectionner un poids
+              </div>
+              <div *ngIf="triForm.graines_pds?.errors?.['pattern']">
+                Le poids indiqué est invalide
+              </div>
+            </div>
+          </div>
+
+          <!-- Nombre estimé -->
+          <div class="col-md-3 form-group mb-3">
+            <label for="graines_nb_estime" class="form-label"> Nombre (estimé) *</label>
+            <input type="number" step="1" class="form-control" id="graines_nb_estime"
+                   formControlName="graines_nb_estime" required>
+
+            <div  *ngIf="(triForm.graines_nb_estime?.invalid && (triForm.graines_nb_estime?.dirty || triForm.graines_nb_estime?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_nb_estime?.errors?.['required']">
+                Veuillez saisir/sélectionner une quantité
+              </div>
+              <div *ngIf="triForm.graines_nb_estime?.errors?.['pattern']">
+                La quantité indiquée est invalide
+              </div>
+            </div>
+          </div>
+
+          <!-- Nombre compté -->
+          <div class="col-md-3 form-group mb-3">
+            <label for="graines_nb" class="form-label"> Nombre (compté) *</label>
+            <input type="number" step="1" class="form-control" id="graines_nb"
+                   formControlName="graines_nb" required>
+
+            <div  *ngIf="(triForm.graines_nb?.invalid && (triForm.graines_nb?.dirty || triForm.graines_nb?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_nb?.errors?.['required']">
+                Veuillez saisir/sélectionner une quantité
+              </div>
+              <div *ngIf="triForm.graines_nb?.errors?.['pattern']">
+                La quantité indiquée est invalide
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+
+          <!-- Poids 100g -->
+          <div  class="col-md-3 form-group mb-3">
+            <label for="graines_100pds" class="form-label"> Poids 100 graines </label>
+            <input type="number" step="0.0001" class="form-control" id="graines_100pds"
+                   formControlName="graines_100pds">
+
+            <div  *ngIf="(triForm.graines_100pds?.invalid && (triForm.graines_100pds?.dirty || triForm.graines_100pds?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_100pds?.errors?.['pattern']">
+                Le poids indiqué est invalide
+              </div>
+            </div>
+          </div>
+
+          <!-- Poids 1000g -->
+          <div class="col-md-3 form-group mb-3">
+            <label for="graines_1000pds" class="form-label"> Poids 1000 graines </label>
+            <input type="number" step="0.0001" class="form-control" id="graines_1000pds"
+                   formControlName="graines_1000pds">
+
+            <div  *ngIf="(triForm.graines_1000pds?.invalid && (triForm.graines_1000pds?.dirty || triForm.graines_1000pds?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_1000pds?.errors?.['pattern']">
+                Le poids indiqué est invalide
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="row" >
+        <!-- Etat -->
+        <div class="col-md-4 form-group mb-3">
+          <label for="graines_etat" class="form-label">État</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+          <!-- graines_trash_pds -->
+          <div class="col-md-3 form-group mb-3">
+            <label for="graines_trash_pds" class="form-label"> Poids de graines au rebut </label>
+            <input type="number" step="0.0001" class="form-control" id="graines_trash_pds"
+                   formControlName="graines_trash_pds">
+
+            <div  *ngIf="(triForm.graines_trash_pds?.invalid && (triForm.graines_trash_pds?.dirty || triForm.graines_trash_pds?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_trash_pds?.errors?.['required']">
+                Veuillez saisir/sélectionner un poids
+              </div>
+              <div *ngIf="triForm.graines_trash_pds?.errors?.['pattern']">
+                Le poids indiqué est invalide
+              </div>
+            </div>
+          </div>
+
+          <!-- graines_trash_pds -->
+          <div class="col-md-3 form-group mb-3">
+            <label for="graines_trash_nb" class="form-label"> Nombre de graines au rebut </label>
+            <input type="number" step="1" class="form-control" id="graines_trash_nb"
+                   formControlName="graines_trash_nb">
+
+            <div  *ngIf="(triForm.graines_trash_nb?.invalid && (triForm.graines_trash_nb?.dirty || triForm.graines_trash_nb?.touched))"
+                   class="invalid-feedback d-block">
+              <div *ngIf="triForm.graines_nb?.errors?.['required']">
+                Veuillez saisir/sélectionner une quantité
+              </div>
+              <div *ngIf="triForm.graines_trash_nb?.errors?.['pattern']">
+                La quantité indiquée est invalide
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="row">
+        <div  class="col" >
+
+          <!-- Raison de la mise au rebut -->
+          <div class="form-group mb-3">
+            <label for="graines_trash_raison" class="form-label"> Raison de la mise au rebut </label>
+            <textarea rows="3" class="form-control" formControlName="graines_trash_raison"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-md-3" >
+          <!-- Durée du tri -->
+          <div class="form-group mb-3">
+            <label for="tri_duree" class="form-label"> Durée du tri et nettoyage</label>
+            <input type="text" class="form-control" id="tri_duree"
+                   formControlName="tri_duree" required>
+          </div>
+
+          <div  *ngIf="(triForm.tri_duree?.invalid && (triForm.tri_duree?.dirty || triForm.tri_duree?.touched))"
+                 class="invalid-feedback d-block">
+            <div *ngIf="triForm.tri_duree?.errors?.['required']">
+              Veuillez saisir/sélectionner une durée
+            </div>
+            <div *ngIf="triForm.tri_duree?.errors?.['pattern']">
+              La durée indiquée est invalide
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+
+
+    </form>
+  </div>
+</div>
