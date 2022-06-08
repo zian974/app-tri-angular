@@ -1,6 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { AbstractControl, FormBuilder } from '@angular/forms';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Taxon } from 'src/app/modules/flores/modules/taxref/taxref.model';
 import { TriForm } from '../../forms/triForm';
 import { Tri, TriModel } from '../../models/tri';
@@ -12,7 +14,9 @@ import { TrisService } from '../../services/tris.service';
   styleUrls: ['./tri-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TriEditComponent implements OnInit {
+export class TriEditComponent implements OnInit, OnDestroy {
+
+  private onComponentDestroy$ = new Subject();
 
   public data: { tri: TriModel, selectedTaxon: Taxon } = {
     tri: new TriModel(),
@@ -38,6 +42,23 @@ export class TriEditComponent implements OnInit {
 
     }
 
+    this.triForm.tri_origin.valueChanges.pipe(
+      tap( (event: string) => {
+        if (event === 'other') {
+          this.triForm.tri_origin_other.setValidators(Validators.required);
+        } else {
+          this.triForm.tri_origin_other.clearValidators();
+          this.triForm.tri_origin_other.reset();
+        }
+        this.triForm.tri_origin_other.updateValueAndValidity();
+      } )
+    ).subscribe(
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.onComponentDestroy$.next();
+    this.onComponentDestroy$.complete();
   }
 
 

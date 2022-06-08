@@ -1,13 +1,11 @@
 <form #agentsForm="ngForm">
-<input type="text" class="form-control mb-2" id="abbr" name="abbr"
-       required
-       [(ngModel)]="data.filters.abbr">
+  <input type="text" class="form-control mb-2" id="abbr" name="abbr"
+        [(ngModel)]="data.filters.abbr">
 
-<div class="card agentsFilterContainer" *ngIf="data.states.listVisible"
-       style="position: absolute; inset: 0px 1rem auto 1rem; transform: translate(0px, 64px);">
+  <div  class="card agentsFilterContainer" *ngIf="data.states.listVisible"
+        >
     <div class="list-group my-n3">
-      <div class="list-group-item" *ngFor="let agent of data.agents; trackBy: trackBy"
-           (click)="onClick(agent)">
+      <div class="list-group-item" *ngFor="let agent of data.agents; trackBy: trackBy" (click)="onClick(agent)">
         <div class="row">
           <div class="col ms-n2">
             <h5 class="mb-1">{{agent.abbr}}</h5>
@@ -18,18 +16,19 @@
               {{agent.email}}
             </small>
           </div>
-        </div> <!-- / .row -->
+        </div>
       </div>
     </div>
   </div>
-</form>
 
+</form>
 
 <ul class="list-group list-group-lg">
   <li class="list-group-item  d-flex justify-content-between align-items-center" *ngFor="let agent of data.selectedAgents; index as i;">
-    <div>{{ agent.abbr}} - {{agent.nom}} {{agent.prenom}}</div>
+    <div>{{ agent.abbr }} - {{agent.nom}} {{agent.prenom}}</div>
     <div>
-      <button class="btn btn-outline" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" (click)="onRemove(i)">
+      <button class="btn btn-outline" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              (click)="onRemove(i)">
         <span _ngcontent-ggo-c50="" class="material-symbols-outlined" style="font-size: 1rem;" > close </span>
       </button>
     </div>

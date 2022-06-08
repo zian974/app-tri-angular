@@ -29,7 +29,7 @@ export class TriForm {
     /**
      * @property cd_ref du taxon
      */
-     cd_ref: [ null , [ Validators.pattern('[0-9]*') ] ],
+    cd_ref: [ null , [ Validators.pattern('[0-9]*') ] ],
 
     /**
      * @property Nom botanique de l'espèce triées
@@ -49,12 +49,22 @@ export class TriForm {
     /**
      * @property Date du tri
      */
-    tri_duree: [ null , [Validators.required, Validators.pattern('[0-9]{2}:[0-9]{2}') ] ],
+    tri_duree: [ null , [Validators.required, Validators.pattern('[0-9]{2}:[0-9][05]') ] ],
+
+    /**
+     * @property Origin du lot trier
+     */
+    tri_origin: [ null , [Validators.required] ],
+
+    /**
+     * @property Origin du lot trier
+     */
+    tri_origin_other: [ null , [] ],
 
     /**
      * @property Agent(s) ayant effectué(s) le tri
      */
-    agents: [ [] ],
+    agents: [ [], [Validators.required] ],
 
     /**
      * @property Poids de fruits récoltés
@@ -113,6 +123,8 @@ export class TriForm {
     private fb: FormBuilder
   ){
     this.fg = this.fb.group( this.fgObject );
+
+
   }
 
 
@@ -171,6 +183,8 @@ export class TriForm {
   get num_accession(): FormControl { return this.fg.get('num_accession') as FormControl; };
   get tri_date(): FormControl { return this.fg.get('tri_date') as FormControl; };
   get tri_duree(): FormControl { return this.fg.get('tri_duree') as FormControl; };
+  get tri_origin(): FormControl { return this.fg.get('tri_origin') as FormControl; };
+  get tri_origin_other(): FormControl { return this.fg.get('tri_origin_other') as FormControl; };
 
   get fruits_pds(): FormControl { return this.fg.get('fruits_pds') as FormControl; };
   get fruits_nb(): FormControl { return this.fg.get('fruits_nb') as FormControl; };

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit, Input, ViewChild, OnDestroy, Renderer2, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit, Input, ViewChild, OnDestroy, Renderer2, ElementRef, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, switchMap, takeUntil } from 'rxjs/operators';
@@ -9,7 +9,10 @@ import { AgentsSelectService } from './agents-select.service';
 @Component({
   selector: 'agents-select',
   templateUrl: './agents-select.component.html',
-  styleUrls: ['./agents-select.component.css'],
+  styles: [
+    ':host { display:block; }',
+    ':host > form { position: relative; z-index: 1}',
+  '.agentsFilterContainer {position: absolute; inset: 0px 0 auto 0; transform: translate(0px, 42px);} '],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -96,9 +99,10 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
     if ( !(this.formInput.value as number[]).includes(agent.id as number) ) {
       this.formInput.value.push( agent.id );
       this.data.selectedAgents.push(agent);
+      this.formInput.updateValueAndValidity();
     }
 
-   this.data.filters.abbr = "";
+    this.data.filters.abbr = "";
     this.toggleList();
   }
 
@@ -109,8 +113,8 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
     let value: number[] = this.formInput.value;
     value = value.filter( el => el !== agentId );
     this.formInput.setValue(value);
-
     this.data.selectedAgents.splice(index, 1);
+    this.formInput.markAsDirty();
   }
 
 

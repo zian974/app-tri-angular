@@ -65,6 +65,17 @@ a:hover {
 }
 
 
+label {
+  font-weight: 500;
+}
+
+p.text-required {
+  margin-bottom: 2.5rem;
+}
+label.required::after {
+  content: " *";
+  color: red;
+}
 
 .form-check-input[type="checkbox"] {
   border-radius: .375rem;
@@ -80,7 +91,6 @@ a:hover {
   width: 1rem;
 }
 .form-check-input {
-  -webkit-print-color-adjust: exact;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -89,7 +99,7 @@ a:hover {
   background-repeat: no-repeat;
   background-size: contain;
   border: transparent;
-  color-adjust: exact;
+  print-color-adjust: exact;
   height: 1rem;
   margin-top: .25em;
   vertical-align: top;
