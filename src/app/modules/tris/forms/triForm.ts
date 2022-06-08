@@ -12,9 +12,15 @@ export interface TrisFilters {
 export class TriForm {
 
   public data = {
-    triEtats: [
+    triFruitsEtat: [
       { lbl: 'mature', value: 'M', checked: false },
       { lbl: 'immature', value: 'I', checked: false }
+    ],
+
+    triGrainesEtat: [
+      { lbl: 'Bon', value: 'B', checked: false },
+      { lbl: 'Moyen', value: 'M', checked: false },
+      { lbl: 'Mauvais', value: 'N', checked: false },
     ]
   };
 
@@ -77,10 +83,6 @@ export class TriForm {
     /**
      * @property Etats du lot de fruit à trier
      */
-    // fruits_etat: this.fb.group({
-    //   mature: [ false ],
-    //   immature: [ false ]
-    // }),
     fruits_etat: new FormArray([]),
 
     /**
@@ -117,6 +119,12 @@ export class TriForm {
      * @property Nombre de graines récoltées estimées
      */
     graines_nb_estime: [ null , [ Validators.required, Validators.pattern('[0-9]*') ] ],
+
+    /**
+     * @property Etats du lot de fruit à trier
+     */
+    graines_etat: new FormArray([]),
+
 
     /**
      * @property Poids de graines mises au rebut
@@ -172,9 +180,20 @@ export class TriForm {
         if ( 'fruits_etat' == key ) {
           let etats: string[] = value.split(",");
           etats.map( (etat, index) => {
-            let idx: number = this.data.triEtats.findIndex( (el) => el.value === etat);
-            if ( idx !== -1 ) this.data.triEtats[idx].checked = true;
+            let idx: number = this.data.triFruitsEtat.findIndex( (el) => el.value === etat);
+            if ( idx !== -1 ) this.data.triFruitsEtat[idx].checked = true;
             this.fruits_etat.push( new FormControl(etat) );
+          })
+
+          continue;
+        }
+
+        if ( 'graines_etat' == key ) {
+          let etats: string[] = value.split(",");
+          etats.map( (etat, index) => {
+            let idx: number = this.data.triGrainesEtat.findIndex( (el) => el.value === etat);
+            if ( idx !== -1 ) this.data.triGrainesEtat[idx].checked = true;
+            this.graines_etat.push( new FormControl(etat) );
           })
 
           continue;
@@ -218,6 +237,8 @@ export class TriForm {
   get fruits_pds(): FormControl { return this.fg.get('fruits_pds') as FormControl; };
   get fruits_nb(): FormControl { return this.fg.get('fruits_nb') as FormControl; };
 
+
+  get graines_etat(): FormArray { return this.fg.get('graines_etat') as FormArray; };
   get graines_pds(): FormControl { return this.fg.get('graines_pds') as FormControl; };
   get graines_100pds(): FormControl { return this.fg.get('graines_100pds') as FormControl; };
   get graines_1000pds(): FormControl { return this.fg.get('graines_1000pds') as FormControl; };

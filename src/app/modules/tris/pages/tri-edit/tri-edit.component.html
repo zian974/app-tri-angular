@@ -174,13 +174,15 @@
           <!-- Etat -->
           <div class="col-md-4 form-group mb-3">
             <label for="fruits_etat" class="form-label required">État</label>
-            <div class="form-check" *ngFor="let etat of triForm.data.triEtats; let i=index">
-              <input class="form-check-input" type="checkbox" id="check-mature"
-                     formArrayName="fruits_etat" [value]="etat.value" [checked]="etat.checked"
-                     (change)="onFruitsEtatChange($event)">
-              <label class="form-check-label" for="check-mature">
-                {{ etat.lbl }}
-              </label>
+            <div class="d-flex">
+              <div class="form-check d-inline-flex me-4" *ngFor="let etat of triForm.data.triFruitsEtat; let i=index">
+                <input class="form-check-input" type="checkbox" id="check-mature{{i}}"
+                      formArrayName="fruits_etat" [value]="etat.value" [checked]="etat.checked"
+                      (change)="onFruitsEtatChange($event)">
+                <label class="form-check-label ms-1" for="check-mature{{i}}">
+                  {{ etat.lbl }}
+                </label>
+              </div>
             </div>
           </div>
       </div>
@@ -278,6 +280,16 @@
         <!-- Etat -->
         <div class="col-md-4 form-group mb-3">
           <label for="graines_etat" class="form-label">État</label>
+          <div class="d-flex">
+            <div class="form-check d-inline-flex me-4" *ngFor="let etat of triForm.data.triGrainesEtat let i=index">
+              <input class="form-check-input" type="radio" id="radio-etat{{i}}" name="radion-etat"
+                    formArrayName="graines_etat" [value]="etat.value" [checked]="etat.checked"
+                    (change)="onGrainesEtatChange($event)">
+              <label class="form-check-label ms-1" for="radio-etat{{i}}">
+                {{ etat.lbl }}
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 

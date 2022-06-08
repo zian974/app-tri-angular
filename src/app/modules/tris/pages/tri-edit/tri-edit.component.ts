@@ -123,4 +123,10 @@ export class TriEditComponent implements OnInit, OnDestroy {
     }
   }
 
+
+  onGrainesEtatChange(event: any) {
+    this.triForm.graines_etat.controls.splice(0,1);
+    this.triForm.graines_etat.push(new FormControl(event.target.value))
+  }
+
 }
