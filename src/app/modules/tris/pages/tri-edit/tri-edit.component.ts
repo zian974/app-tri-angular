@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -20,10 +20,12 @@ export class TriEditComponent implements OnInit, OnDestroy {
 
   public data: { tri: TriModel, selectedTaxon: Taxon } = {
     tri: new TriModel(),
-    selectedTaxon: new Taxon()
+    selectedTaxon: new Taxon(),
+
   }
 
   public triForm = new TriForm( this.fb );
+  public fg = this.triForm.fg;
 
 
   constructor(
@@ -103,9 +105,22 @@ export class TriEditComponent implements OnInit, OnDestroy {
     );
   }
 
+
   onTaxonSelect( taxon: Taxon ) {
     this.triForm.nom_botanique.setValue(taxon.scientificName);
     this.triForm.cd_ref.setValue(taxon.referenceId);
+  }
+
+
+  onFruitsEtatChange(event: any) {
+    if (event.target.checked) {
+      this.triForm.fruits_etat.push(new FormControl(event.target.value))
+    } else {
+      const index = this.triForm.fruits_etat.controls.findIndex( el => el.value === event.target.value );
+      if ( index !== -1 ) {
+        this.triForm.fruits_etat.removeAt(index);
+      }
+    }
   }
 
 }

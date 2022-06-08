@@ -1,5 +1,5 @@
 import { formatDate } from "@angular/common";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Agent } from "../../models/agent";
 import { Tri } from "../models/tri";
 
@@ -10,6 +10,14 @@ export interface TrisFilters {
 
 
 export class TriForm {
+
+  public data = {
+    triEtats: [
+      { lbl: 'mature', value: 'M', checked: false },
+      { lbl: 'immature', value: 'I', checked: false }
+    ]
+  };
+
 
   /**
    * @property Ng FormGroup du formulaire
@@ -65,6 +73,15 @@ export class TriForm {
      * @property Agent(s) ayant effectué(s) le tri
      */
     agents: [ [], [Validators.required] ],
+
+    /**
+     * @property Etats du lot de fruit à trier
+     */
+    // fruits_etat: this.fb.group({
+    //   mature: [ false ],
+    //   immature: [ false ]
+    // }),
+    fruits_etat: new FormArray([]),
 
     /**
      * @property Poids de fruits récoltés
@@ -143,12 +160,23 @@ export class TriForm {
         }
 
         if( 'agents' == key && value !== null ) {
-
           let agents: number[] = []
           value.forEach((element:Agent) => {
             agents.push(element.id as number);
           });
           this.agents.setValue(agents)
+
+          continue;
+        }
+
+        if ( 'fruits_etat' == key ) {
+          let etats: string[] = value.split(",");
+          etats.map( (etat, index) => {
+            let idx: number = this.data.triEtats.findIndex( (el) => el.value === etat);
+            if ( idx !== -1 ) this.data.triEtats[idx].checked = true;
+            this.fruits_etat.push( new FormControl(etat) );
+          })
+
           continue;
         }
 
@@ -186,6 +214,7 @@ export class TriForm {
   get tri_origin(): FormControl { return this.fg.get('tri_origin') as FormControl; };
   get tri_origin_other(): FormControl { return this.fg.get('tri_origin_other') as FormControl; };
 
+  get fruits_etat(): FormArray { return this.fg.get('fruits_etat') as FormArray; };
   get fruits_pds(): FormControl { return this.fg.get('fruits_pds') as FormControl; };
   get fruits_nb(): FormControl { return this.fg.get('fruits_nb') as FormControl; };
 
