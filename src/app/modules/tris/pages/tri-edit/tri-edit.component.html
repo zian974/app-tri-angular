@@ -52,13 +52,16 @@
           <!-- Numéro d'accession -->
           <div class="form-group col-md-6 g-0 mb-3">
             <label for="num_accession" class="form-label">Numéro d'accession *</label>
-            <input type="text" class="form-control" id="num_accession"
+            <input type="text" class="form-control" id="num_accession" placeholder="WS 22-1"
                   formControlName="num_accession" required>
 
             <div  *ngIf="(triForm.num_accession?.invalid && (triForm.num_accession?.dirty || triForm.num_accession?.touched))"
                   class="invalid-feedback d-block">
               <div *ngIf="triForm.num_accession?.errors?.['required']">
                 Veuillez saisir/sélectionner un numéro d'accession
+              </div>
+              <div *ngIf="triForm.num_accession?.errors?.['pattern']">
+               Le numéro d'accession est invalide
               </div>
             </div>
           </div>

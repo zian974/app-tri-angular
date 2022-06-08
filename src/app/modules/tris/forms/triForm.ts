@@ -39,7 +39,7 @@ export class TriForm {
     /**
      * @property Numéro d'accession
      */
-    num_accession: [ "", [Validators.required,] ],
+    num_accession: [ "", [Validators.required, Validators.pattern('^(WS|WV|CS|CV|BS) [0-9]+-[0-9]*$')] ],
 
     /**
      * @property Date du tri
