@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit, Input, ViewChild, OnDestroy, Renderer2, ElementRef, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, finalize, map, switchMap, takeUntil } from 'rxjs/operators';
 import { Agent, AgentModel } from 'src/app/modules/models/agent';
 import { Agents } from 'src/app/modules/models/agents';
 import { AgentsSelectService } from './agents-select.service';
@@ -12,7 +12,9 @@ import { AgentsSelectService } from './agents-select.service';
   styles: [
     ':host { display:block; }',
     ':host > form { position: relative; z-index: 1}',
-  '.agentsFilterContainer {position: absolute; inset: 0px 0 auto 0; transform: translate(0px, 42px);} '],
+    '.agentsFilterContainer {position: absolute; inset: 0px 0 auto 0; transform: translate(0px, 42px);} ',
+    '.spinner { display: none }',
+    '.spinner.show { display: block }'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -48,6 +50,7 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private agentsSvc : AgentsSelectService,
+    private _elementRef: ElementRef,
     private cdRef: ChangeDetectorRef,
     private element: ElementRef,
     private renderer: Renderer2,) { }
@@ -66,7 +69,10 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
           return filters.abbr && filters.abbr.length >= 3;
         }),
         switchMap( filters => {
-          return this.agentsSvc.index( filters );
+          this._elementRef.nativeElement.querySelector('.spinner')?.classList.add('show');
+          return this.agentsSvc.index( filters ).pipe(
+            finalize( () => this._elementRef.nativeElement.querySelector('.spinner')?.classList.remove('show'))
+          );
         }),
       )
 
