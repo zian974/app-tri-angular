@@ -115,11 +115,11 @@ label.required::after {
   opacity: 1;
 }
 
-input:invalid+span:after {
+/* input:invalid+span:after {
   position: absolute;
   content: '✖';
   padding-left: 5px;
-}
+} */
 
 
 .btn-outline-danger {

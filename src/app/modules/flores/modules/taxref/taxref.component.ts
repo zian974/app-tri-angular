@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit, OnDestroy, Input, ViewChild, ChangeDetectorRef, ElementRef, Renderer2, Output, EventEmitter } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, finalize, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { Taxon } from './taxref.model';
 import { TaxrefService } from './taxref.service';
@@ -10,7 +10,9 @@ import { TaxrefService } from './taxref.service';
   selector: 'app-taxref',
   templateUrl: './taxref.component.html',
   styles: [
-    '.list-group-item { cursor: pointer}'
+    '.list-group-item { cursor: pointer}',
+    '.spinner { display: none }',
+    '.spinner.show { display: block }'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -49,6 +51,7 @@ export class TaxrefComponent implements OnInit, AfterViewInit, OnDestroy {
   private onComponentDestroy$ = new Subject();
 
   constructor(
+    private _elementRef: ElementRef<HTMLElement>,
     private taxrefSvc : TaxrefService,
     private cdRef: ChangeDetectorRef,
     private element: ElementRef,
@@ -68,28 +71,28 @@ export class TaxrefComponent implements OnInit, AfterViewInit, OnDestroy {
           return filters.term && filters.term.length >= 3;
         }),
         switchMap( filters => {
-          return this.taxrefSvc.autocomplete( filters );
-        }),
+          this._elementRef.nativeElement.querySelector('.spinner')?.classList.add('show');
+          return this.taxrefSvc.autocomplete( filters ).pipe(
+            finalize( () => this._elementRef.nativeElement.querySelector('.spinner')?.classList.remove('show'))
+          );
+        })
       )
 
-    this.formChangesSubscription$.subscribe( (response: any) => {
-
-      if ( response._embedded && response._embedded.taxa.length > 0 ) {
-
-        this.data.Taxa = [...response._embedded.taxa ];
-
-// this.data.Taxa.forEach( (el: Taxon) => {
-//   let str:string = el.referenceNameHtml as string;
-//   // let reg =nex RegExp(/<i>/)
-//   let test = str.match(/(<i>(.*)<\/i>)/);
-//   // let split: string[] = [...(str.match("(<i>.*</i>)")) as [] ];
-//   console.log(test)
-// })
-
-        this.data.states.listVisible = true;
+    this.formChangesSubscription$.subscribe(
+      {
+        next: (response: any) => {
+          console.log(response)
+          if ( response._embedded && response._embedded.taxa.length > 0 ) {
+            this.data.Taxa = [...response._embedded.taxa ];
+            this.data.states.listVisible = true;
+          }
+          this.cdRef.markForCheck();
+        },
+        error: (error) => {
+          console.log(error)
+        }
       }
-      this.cdRef.markForCheck();
-    });
+    );
 
     this.unlistenDocumentClick$ = this.renderer.listen(document, 'click', (e: MouseEvent) => {
       this.onClickOutside(e)
