@@ -81,6 +81,7 @@ export class SpinnerComponent implements OnInit {
 
   hide() {
     this._elementRef.nativeElement.classList.remove('show');
+    setTimeout(  () => this._elementRef.nativeElement.classList.add('d-none'), 500);
   }
 
 }
