@@ -86,6 +86,12 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
+  onReset() {
+    this.filtersForm.fg.reset();
+    this.onSubmit();
+  }
+
+
   onSubmit() {
     this.filtersChanged.emit(this.filtersForm.fg.value);
   }
