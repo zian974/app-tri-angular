@@ -13,16 +13,24 @@
             </div> -->
           </th>
           <th>
-            <span class="list-sort text-muted">Nom botanique</span>
+            <a class="list-sort text-muted" data-sort [routerLink]="" (click)="onSort('nom_botanique')">
+              Nom botanique
+            </a>
           </th>
           <th>
-            <span class="list-sort text-muted">Date de tri</span>
+            <a class="list-sort text-muted" data-sort [routerLink]="" (click)="onSort('tri_date')">
+              Date de tri
+            </a>
           </th>
           <th>
-            <span class="list-sort text-muted">Nombre</span>
+            <span class="list-sort text-muted">
+              Nombre
+            </span>
           </th>
           <th>
-            <span class="list-sort text-muted">Poids</span>
+            <span class="list-sort text-muted">
+              Poids
+            </span>
           </th>
         </tr>
       </thead>

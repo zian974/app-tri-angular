@@ -3,8 +3,15 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@ang
 import { Tri } from "../models/tri";
 
 
-export interface TrisFilters {
+export class TrisFilters {
   nom_botanique: string|null;
+  ordering_column: string;
+  ordering_direction: string;
+  constructor( data: any = {} ) {
+    this.nom_botanique = data.nom_botanique || null;
+    this.ordering_column = data.ordering_column || null;
+    this.ordering_direction = data.ordering_direction || null;
+  }
 }
 
 
@@ -15,9 +22,9 @@ export class TrisFiltersForm {
    * @private
    */
   private fgObject: { [key: string]: any; } = {
-
-    nom_botanique: [ "" ],
-
+    nom_botanique: [""],
+    ordering_column: [ "" ],
+    ordering_direction: [ "" ],
   };
 
   public fg: FormGroup;
@@ -65,6 +72,8 @@ export class TrisFiltersForm {
    *
    */
   get nom_botanique(): FormControl { return this.fg.get('nom_botanique') as FormControl; };
+  get ordering_column(): FormControl { return this.fg.get('ordering_column') as FormControl; };
+  get ordering_direction(): FormControl { return this.fg.get('ordering_direction') as FormControl; };
 
 
   // dateToYMD = (date: Date) => {
