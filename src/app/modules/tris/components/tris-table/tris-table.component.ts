@@ -30,6 +30,14 @@ export class TrisTableComponent implements OnInit {
     this.makePagination();
   }
 
+
+  @Input() set filters( filters: TrisFilters|null ) {
+    if( filters === null ) return;
+    this.data.filters = new TrisFilters(filters);
+    this.makePagination();
+    this.filtersChanged.emit(filters);
+  }
+
   @Output() filtersChanged = new EventEmitter();
 
 

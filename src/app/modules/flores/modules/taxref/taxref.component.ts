@@ -81,7 +81,6 @@ export class TaxrefComponent implements OnInit, AfterViewInit, OnDestroy {
     this.formChangesSubscription$.subscribe(
       {
         next: (response: any) => {
-          console.log(response)
           if ( response._embedded && response._embedded.taxa.length > 0 ) {
             this.data.Taxa = [...response._embedded.taxa ];
             this.data.states.listVisible = true;

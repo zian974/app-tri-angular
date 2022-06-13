@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, Renderer2, Output, EventEmitter, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, Renderer2, Output, EventEmitter, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { TrisFiltersForm } from '../../forms/trisFiltersForm';
+import { TrisFilters, TrisFiltersForm } from '../../forms/trisFiltersForm';
 
 @Component({
   selector: 'tris-filters',
@@ -11,6 +11,10 @@ import { TrisFiltersForm } from '../../forms/trisFiltersForm';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  @Input() set filters( filters: TrisFilters) {
+    this.filtersForm.patchValue(filters);
+  }
 
   @Output() filtersChanged = new EventEmitter();
 
@@ -87,7 +91,7 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   onReset() {
-    this.filtersForm.fg.reset();
+    this.filtersForm.nom_botanique.reset();
     this.onSubmit();
   }
 
@@ -102,6 +106,5 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
     if (filterContainer && !this.element.nativeElement.querySelector('.trisFiltersContainer').contains(event.target)) {
       this.toggleFilters( event );
     }
-
   }
 }

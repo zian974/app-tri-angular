@@ -1,6 +1,6 @@
 <div id="trisList" class="card">
 
-  <tris-filters (filtersChanged)="onFiltersChanged($event)"></tris-filters>
+  <tris-filters [filters]="data.filters" (filtersChanged)="onFiltersChanged($event)"></tris-filters>
 
   <div class="table-responsive">
     <table class="mb-2 table table-sm table-hover table-nowrap card-table">

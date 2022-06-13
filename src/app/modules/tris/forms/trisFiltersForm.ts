@@ -48,7 +48,7 @@ export class TrisFiltersForm {
    *
    * @param value FormGroupOBject
    */
-  public patchValue( values:Tri ): void {
+  public patchValue( values:TrisFilters ): void {
 
     for ( let [key, value] of Object.entries( values ) ) {
       if ( this.fg.get(key) ) {

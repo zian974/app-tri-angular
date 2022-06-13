@@ -1,6 +1,10 @@
-import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { finalize } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { Subject } from 'rxjs';
+import { finalize, take, takeUntil } from 'rxjs/operators';
+import { populateFilters } from './actions/tris.actions';
+import { tris, trisFilters } from './actions/tris.selector';
 import { TrisFilters } from './forms/trisFiltersForm';
 import { TriModel, Tris, TrisModel } from './models/tri';
 import { TrisService } from './services/tris.service';
@@ -11,23 +15,43 @@ import { TrisService } from './services/tris.service';
   styleUrls: ['./tris.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TrisComponent implements OnInit, AfterViewInit {
+export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  public data: { tris: TrisModel } = {
-    tris: new TrisModel
+  private onComponentDestroy$ = new Subject;
+
+  public data: { tris: TrisModel, filters: TrisFilters|null } = {
+    tris: new TrisModel,
+    filters: null
   }
 
   constructor(
       private cdRef: ChangeDetectorRef,
       private client : TrisService,
       private route: ActivatedRoute,
+      private store: Store
     ) { }
 
   ngOnInit(): void {
+
   }
 
+
+  ngOnDestroy() {
+    this.onComponentDestroy$.next();
+    this.onComponentDestroy$.complete()
+  }
+
+
   ngAfterViewInit() {
-    this.index();
+      this.cdRef.markForCheck();
+    this.store.select(trisFilters)
+    .pipe(
+      take(1)
+    )
+    .subscribe( (e) => {
+      this.data.filters = { ...e };
+      this.cdRef.detectChanges();
+    })
   }
 
 
@@ -46,6 +70,7 @@ export class TrisComponent implements OnInit, AfterViewInit {
 
 
   onFiltersChanged( filters: TrisFilters ): void {
+    this.store.dispatch( populateFilters(filters) );
     this.index(filters);
   }
 

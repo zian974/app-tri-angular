@@ -94,7 +94,6 @@ export class TriEditComponent implements OnInit, OnDestroy {
       let controls: { [key: string]: AbstractControl; } = this.triForm.fg.controls;
       for ( let ctrl in controls ) {
         controls[ctrl].markAsDirty();
-
         if ( controls[ctrl].status !== 'VALID' ) {
           console.log(ctrl, controls[ctrl].errors)
         }

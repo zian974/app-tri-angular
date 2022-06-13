@@ -3,12 +3,6 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@ang
 import { Agent } from "../../models/agent";
 import { Tri } from "../models/tri";
 
-
-export interface TrisFilters {
-  nom_botanique: string|null;
-}
-
-
 export class TriForm {
 
   public data = {
