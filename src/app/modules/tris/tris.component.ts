@@ -1,8 +1,9 @@
-import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { finalize, take, takeUntil } from 'rxjs/operators';
+import { SpinnerComponent } from 'src/app/shared/modules/spinner/spinner.component';
 import { populateFilters } from './actions/tris.actions';
 import { tris, trisFilters } from './actions/tris.selector';
 import { TrisFilters } from './forms/trisFiltersForm';
@@ -16,6 +17,8 @@ import { TrisService } from './services/tris.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  @ViewChild(SpinnerComponent) spinner!: SpinnerComponent
 
   private onComponentDestroy$ = new Subject;
 
@@ -56,9 +59,10 @@ export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   index = ( filters: TrisFilters|null = null ) => {
+    this.spinner.show();
     this.client.index( filters )
       .pipe(
-        finalize(() => true)
+        finalize(() => this.spinner.hide())
       )
       .subscribe(
         (response: any ) => {
