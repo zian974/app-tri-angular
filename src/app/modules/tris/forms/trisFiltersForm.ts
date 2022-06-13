@@ -7,10 +7,15 @@ export class TrisFilters {
   nom_botanique: string|null;
   ordering_column: string;
   ordering_direction: string;
+  limit: number;
+  limit_start: number;
+
   constructor( data: any = {} ) {
     this.nom_botanique = data.nom_botanique || null;
     this.ordering_column = data.ordering_column || null;
     this.ordering_direction = data.ordering_direction || null;
+    this.limit = data.limit || 25;
+    this.limit_start = data.limit_start || 0;
   }
 }
 
@@ -25,6 +30,7 @@ export class TrisFiltersForm {
     nom_botanique: [""],
     ordering_column: [ "" ],
     ordering_direction: [ "" ],
+    limit: [ 25 ],
   };
 
   public fg: FormGroup;
@@ -74,6 +80,7 @@ export class TrisFiltersForm {
   get nom_botanique(): FormControl { return this.fg.get('nom_botanique') as FormControl; };
   get ordering_column(): FormControl { return this.fg.get('ordering_column') as FormControl; };
   get ordering_direction(): FormControl { return this.fg.get('ordering_direction') as FormControl; };
+  get limit(): FormControl { return this.fg.get('limit') as FormControl; };
 
 
   // dateToYMD = (date: Date) => {

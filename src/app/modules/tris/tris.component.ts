@@ -2,7 +2,7 @@ import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, 
 import { ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { TrisFilters } from './forms/trisFiltersForm';
-import { TriModel, Tris } from './models/tri';
+import { TriModel, Tris, TrisModel } from './models/tri';
 import { TrisService } from './services/tris.service';
 
 @Component({
@@ -13,11 +13,9 @@ import { TrisService } from './services/tris.service';
 })
 export class TrisComponent implements OnInit, AfterViewInit {
 
-  public data: { tris: Tris } = {
-    tris: { items: [], metadata: null }
+  public data: { tris: TrisModel } = {
+    tris: new TrisModel
   }
-
-
 
   constructor(
       private cdRef: ChangeDetectorRef,
@@ -27,7 +25,6 @@ export class TrisComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
   }
-
 
   ngAfterViewInit() {
     this.index();
@@ -41,13 +38,15 @@ export class TrisComponent implements OnInit, AfterViewInit {
       )
       .subscribe(
         (response: any ) => {
-          this.data.tris = response;
+          this.data.tris = new TrisModel(response);
           this.cdRef.markForCheck();
         }
     );
   }
 
+
   onFiltersChanged( filters: TrisFilters ): void {
     this.index(filters);
   }
+
 }

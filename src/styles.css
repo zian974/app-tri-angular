@@ -293,3 +293,7 @@ table thead th:first-child {
 	margin-left: .25rem;
 }
 
+
+.pagination a {
+  cursor: pointer;
+}

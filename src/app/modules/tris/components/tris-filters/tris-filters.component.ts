@@ -56,7 +56,7 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
           let buffer = 0;
           for( let filter in values ){
 
-            if ( filter === 'fulltext' ) {
+            if ( ['fulltext', 'limit'].includes(filter) ) {
               continue;
             };
 

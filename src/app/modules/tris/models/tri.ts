@@ -99,8 +99,26 @@ export class TriModel {
 export interface Tris {
   items: Tri[];
   metadata: {
-    "@id": string;
-    "@type": string;
-    "@totalItems": number;
-  } | null;
+    "@id": string | "";
+    "@type": string | "";
+    "totalItems": number | null;
+  };
+}
+
+export class TrisModel {
+  items: Tri[];
+  metadata: {
+    "@id": string | "";
+    "@type": string | "";
+    "totalItems": number;
+  };
+
+  constructor( data: any = {} ) {
+    this.items = data.items || null;
+    this.metadata = data.metadata || {
+      "@id": "",
+      "@type": "",
+      "totalItems": 0
+    }
+  }
 }
