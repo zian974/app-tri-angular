@@ -5,8 +5,8 @@ import { catchError, finalize } from 'rxjs/operators';
 import { Http } from 'src/app/shared/utils/Http';
 import { toUrlParams } from 'src/app/shared/utils/toUrlParams';
 import { environment } from 'src/environments/environment';
-import { TrisFilters } from '../forms/trisFiltersForm';
-import { Tri } from '../models/tri';
+import { TriModel } from '../models/tri.model';
+import { TrisFiltersModel } from '../models/tris-filters.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class TrisService extends Http {
    *
    * @returns
    */
-  index = ( trisFilters: TrisFilters|null = null ): Observable<any> => {
+  index = ( trisFilters?: TrisFiltersModel  ): Observable<any> => {
     let params =  toUrlParams(trisFilters);
 
     return this.http.get<any>(environment.apiUrl + '/api/tris?'+ params )
@@ -40,7 +40,7 @@ export class TrisService extends Http {
       );
   }
 
-  store = ( item: Tri ): Observable<any> => {
+  store = ( item: TriModel ): Observable<any> => {
     const request: Observable<any> = item.id ?
       (<any>this.http.put<any>(environment.apiUrl + '/api/tris/'+ item.id, item ) ) :
       (<any>this.http.post<any>(environment.apiUrl + '/api/tris', item ));

@@ -62,6 +62,7 @@ export class TaxrefComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngAfterViewInit(): void {
+
     this.formChangesSubscription$ = this.ngForm.form.valueChanges
       .pipe(
         takeUntil(this.onComponentDestroy$),

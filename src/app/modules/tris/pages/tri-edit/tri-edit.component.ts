@@ -6,7 +6,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { Taxon } from 'src/app/modules/flores/modules/taxref/taxref.model';
 import { SpinnerComponent } from 'src/app/shared/modules/spinner/spinner.component';
 import { TriForm } from '../../forms/triForm';
-import { Tri, TriModel } from '../../models/tri';
+import { TriModel } from '../../models/tri.model';
 import { TrisService } from '../../services/tris.service';
 
 @Component({
@@ -71,7 +71,7 @@ export class TriEditComponent implements OnInit, OnDestroy {
 
   getItem = ( id: number ): void => {
     this.triSvc.get(id).subscribe(
-      ( response: Tri ) => {
+      ( response: TriModel ) => {
         this.data.tri = new TriModel({ ...response });
         this.triForm.patchValue(response);
         this.data.selectedTaxon = new Taxon({

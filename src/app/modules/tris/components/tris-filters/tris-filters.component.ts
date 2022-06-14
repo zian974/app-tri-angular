@@ -1,8 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, Renderer2, Output, EventEmitter, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TrisFilters, TrisFiltersForm } from '../../forms/trisFiltersForm';
+import { debounceTime, take, takeUntil, timeout } from 'rxjs/operators';
+import { populateFilters } from '../../actions/tris.actions';
+import { trisFiltersSelector } from '../../actions/tris.selector';
+import { TrisFiltersForm } from '../../forms/trisFiltersForm';
+import { TrisFiltersModel } from '../../models/tris-filters.model';
 
 @Component({
   selector: 'tris-filters',
@@ -12,7 +16,7 @@ import { TrisFilters, TrisFiltersForm } from '../../forms/trisFiltersForm';
 })
 export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @Input() set filters( filters: TrisFilters) {
+  @Input() set filters( filters: TrisFiltersModel) {
     this.filtersForm.patchValue(filters);
   }
 
@@ -40,7 +44,8 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
     private cdRef: ChangeDetectorRef,
     private element: ElementRef,
     private fb: FormBuilder,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private store: Store
   ) {
     this.filtersForm = new TrisFiltersForm( this.fb );
   }
@@ -49,6 +54,8 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+
+    this.filterOnInit();
 
     this.filtersForm.fg.valueChanges
       .pipe(
@@ -83,6 +90,22 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
       this.onComponentDestroy$.complete();
   }
 
+  /**
+   * Recherche les données à l'initialisation à l'aide des filtres enregistrés
+   */
+  filterOnInit = (): void => {
+    this.store.select(trisFiltersSelector)
+      .pipe(
+        take(1)
+      )
+      .subscribe( ( filters: TrisFiltersModel ) => {
+        this.filtersForm.patchValue( filters );
+        setTimeout( () => {
+          this.onSubmit()
+        })
+      });
+  }
+
   toggleFilters( event: MouseEvent|null = null) {
     this.data.states.filtersVisible = !this.data.states.filtersVisible;
     this.cdRef.markForCheck();
@@ -98,6 +121,7 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onSubmit() {
     this.filtersChanged.emit(this.filtersForm.fg.value);
+    this.store.dispatch( populateFilters(this.filtersForm.fg.value) );
   }
 
 

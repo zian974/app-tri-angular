@@ -2,13 +2,26 @@ import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, 
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { finalize, take, takeUntil } from 'rxjs/operators';
+import { finalize, take } from 'rxjs/operators';
 import { SpinnerComponent } from 'src/app/shared/modules/spinner/spinner.component';
 import { populateFilters } from './actions/tris.actions';
-import { tris, trisFilters } from './actions/tris.selector';
-import { TrisFilters } from './forms/trisFiltersForm';
-import { TriModel, Tris, TrisModel } from './models/tri';
+import { trisFiltersSelector } from './actions/tris.selector';
+import { TrisFiltersModel } from './models/tris-filters.model';
+import { TrisModel } from './models/tris.model';
 import { TrisService } from './services/tris.service';
+
+
+/**
+ * Data du composant
+ */
+interface ComponentData {
+  /** Données des tris */
+  tris: TrisModel;
+
+  /** Filtres de recherche des tris */
+  filters: TrisFiltersModel;
+}
+
 
 @Component({
   selector: 'app-tris',
@@ -18,26 +31,31 @@ import { TrisService } from './services/tris.service';
 })
 export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  /**
+   * Spinner à afficher lors des requêtes HTTP
+   */
   @ViewChild(SpinnerComponent) spinner!: SpinnerComponent
 
+  /**
+   * Observable à lancer à la destruction du composant pour se désinscrire des éventuelles subscriptions effectuées.
+   */
   private onComponentDestroy$ = new Subject;
 
-  public data: { tris: TrisModel, filters: TrisFilters|null } = {
+  /** Données publiques du composant */
+  public data: ComponentData = {
     tris: new TrisModel,
-    filters: null
+    filters: new TrisFiltersModel
   }
 
   constructor(
       private cdRef: ChangeDetectorRef,
       private client : TrisService,
       private route: ActivatedRoute,
-      private store: Store
     ) { }
 
   ngOnInit(): void {
 
   }
-
 
   ngOnDestroy() {
     this.onComponentDestroy$.next();
@@ -46,19 +64,12 @@ export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngAfterViewInit() {
-      this.cdRef.markForCheck();
-    this.store.select(trisFilters)
-    .pipe(
-      take(1)
-    )
-    .subscribe( (e) => {
-      this.data.filters = { ...e };
-      this.cdRef.detectChanges();
-    })
+
   }
 
 
-  index = ( filters: TrisFilters|null = null ) => {
+  index = ( filters: TrisFiltersModel = new TrisFiltersModel ) => {
+
     this.spinner.show();
     this.client.index( filters )
       .pipe(
@@ -66,6 +77,7 @@ export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
       )
       .subscribe(
         (response: any ) => {
+          console.log('Response', response)
           this.data.tris = new TrisModel(response);
           this.cdRef.markForCheck();
         }
@@ -73,8 +85,8 @@ export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-  onFiltersChanged( filters: TrisFilters ): void {
-    this.store.dispatch( populateFilters(filters) );
+  onFiltersChanged( filters: TrisFiltersModel ): void {
+    console.log('TrisComponent: onFiltersChanged')
     this.index(filters);
   }
 

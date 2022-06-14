@@ -1,5 +1,5 @@
-import { TrisFilters } from "../forms/trisFiltersForm";
+import { TrisFiltersModel } from "../models/tris-filters.model";
 
 export interface TrisState {
-  filters: TrisFilters;
+  filters: TrisFiltersModel;
 }

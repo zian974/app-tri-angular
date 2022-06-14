@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { TrisFilters } from '../../forms/trisFiltersForm';
-import { TriModel, Tris, TrisModel } from '../../models/tri';
+import { TrisFiltersModel } from '../../models/tris-filters.model';
+import { TrisModel } from '../../models/tris.model';
 
 
 class Page {
@@ -25,24 +25,24 @@ class Page {
 })
 export class TrisTableComponent implements OnInit {
 
-  @Input() set tris( tris: Tris ) {
+  @Input() set tris( tris: TrisModel ) {
     this.data.tris = new TrisModel(tris);
     this.makePagination();
   }
 
 
-  @Input() set filters( filters: TrisFilters|null ) {
-    if( filters === null ) return;
-    this.data.filters = new TrisFilters(filters);
-    this.makePagination();
-    this.filtersChanged.emit(filters);
-  }
+  // @Input() set filters( filters: TrisFiltersModel ) {
+  //   if( filters === null ) return;
+  //   this.data.filters = new TrisFiltersModel(filters);
+  //   this.makePagination();
+  //   this.filtersChanged.emit(filters);
+  // }
 
   @Output() filtersChanged = new EventEmitter();
 
 
-  data: { tris: TrisModel, filters: TrisFilters, pagination: Page[] } = {
-    filters: new TrisFilters,
+  data: { tris: TrisModel, filters: TrisFiltersModel, pagination: Page[] } = {
+    filters: new TrisFiltersModel,
     tris: new TrisModel,
     pagination: []
   }
@@ -55,7 +55,7 @@ export class TrisTableComponent implements OnInit {
   }
 
 
-  onFiltersChanged( filters: TrisFilters ): void {
+  onFiltersChanged( filters: TrisFiltersModel ): void {
     this.data.filters = { ...this.data.filters, ...filters };
     this.filtersChanged.emit(filters);
   }
@@ -83,7 +83,7 @@ export class TrisTableComponent implements OnInit {
       filters.ordering_direction = 'ASC';
     }
 
-    this.onFiltersChanged( filters as TrisFilters );
+    this.onFiltersChanged( filters as TrisFiltersModel );
   }
 
 
@@ -92,7 +92,7 @@ export class TrisTableComponent implements OnInit {
       limit: this.data.filters.limit,
       limit_start: page * this.data.filters.limit
     }
-    this.onFiltersChanged(pagination as TrisFilters);
+    this.onFiltersChanged(pagination as TrisFiltersModel);
   }
 
 

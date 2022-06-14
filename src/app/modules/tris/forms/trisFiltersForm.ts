@@ -1,24 +1,7 @@
 import { formatDate } from "@angular/common";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Tri } from "../models/tri";
-
-
-export class TrisFilters {
-  nom_botanique: string|null;
-  ordering_column: string;
-  ordering_direction: string;
-  limit: number;
-  limit_start: number;
-
-  constructor( data: any = {} ) {
-    this.nom_botanique = data.nom_botanique || null;
-    this.ordering_column = data.ordering_column || null;
-    this.ordering_direction = data.ordering_direction || null;
-    this.limit = data.limit || 25;
-    this.limit_start = data.limit_start || 0;
-  }
-}
-
+import { TriModel } from "../models/tri.model";
+import { TrisFiltersModel } from "../models/tris-filters.model";
 
 export class TrisFiltersForm {
 
@@ -48,7 +31,7 @@ export class TrisFiltersForm {
    *
    * @param value FormGroupOBject
    */
-  public patchValue( values:TrisFilters ): void {
+  public patchValue( values: TrisFiltersModel ): void {
 
     for ( let [key, value] of Object.entries( values ) ) {
       if ( this.fg.get(key) ) {
@@ -60,7 +43,7 @@ export class TrisFiltersForm {
   }
 
 
-  public updateValidators = ( tri: Tri|null ): void => {
+  public updateValidators = ( tri: TriModel|null ): void => {
 
     if ( tri === null ) {
       return;

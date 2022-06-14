@@ -1,0 +1,1479 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app-base documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">app-base documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  TriEditComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/tris/pages/tri-edit/tri-edit.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tri-edit</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>:host { display: block; position: relative; }</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tri-edit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fg" >fg</a>
+                            </li>
+                            <li>
+                                <a href="#getItem" >getItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onComponentDestroy$" >onComponentDestroy$</a>
+                            </li>
+                            <li>
+                                <a href="#spinner" >spinner</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#triForm" >triForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteItem" >deleteItem</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFruitsEtatChange" >onFruitsEtatChange</a>
+                            </li>
+                            <li>
+                                <a href="#onGrainesEtatChange" >onGrainesEtatChange</a>
+                            </li>
+                            <li>
+                                <a href="#onTaxonSelect" >onTaxonSelect</a>
+                            </li>
+                            <li>
+                                <a href="#submitItem" >submitItem</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(cdRef: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, triSvc: <a href="../injectables/TrisService.html" target="_self">TrisService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cdRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>triSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TrisService.html" target="_self" >TrisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteItem"></a>
+                    <span class="name">
+                        <span ><b>deleteItem</b></span>
+                        <a href="#deleteItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteItem()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFruitsEtatChange"></a>
+                    <span class="name">
+                        <span ><b>onFruitsEtatChange</b></span>
+                        <a href="#onFruitsEtatChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFruitsEtatChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onGrainesEtatChange"></a>
+                    <span class="name">
+                        <span ><b>onGrainesEtatChange</b></span>
+                        <a href="#onGrainesEtatChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onGrainesEtatChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:138</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTaxonSelect"></a>
+                    <span class="name">
+                        <span ><b>onTaxonSelect</b></span>
+                        <a href="#onTaxonSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTaxonSelect(taxon: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taxon</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitItem"></a>
+                    <span class="name">
+                        <span ><b>submitItem</b></span>
+                        <a href="#submitItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitItem()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tri: new TriModel(),
+    selectedTaxon: new Taxon(),
+
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fg"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>fg</b></span>
+                        <a href="#fg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.triForm.fg</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getItem"></a>
+                    <span class="name">
+                        <span ><b>getItem</b></span>
+                        <a href="#getItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onComponentDestroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onComponentDestroy$</b></span>
+                        <a href="#onComponentDestroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="spinner"></a>
+                    <span class="name">
+                        <span ><b>spinner</b></span>
+                        <a href="#spinner"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/SpinnerComponent.html" target="_self" >SpinnerComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(SpinnerComponent)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="triForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>triForm</b></span>
+                        <a href="#triForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new TriForm( this.fb )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/tris/pages/tri-edit/tri-edit.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, ElementRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { AbstractControl, FormArray, FormBuilder, FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Subject } from &#x27;rxjs&#x27;;
+import { finalize, tap } from &#x27;rxjs/operators&#x27;;
+import { Taxon } from &#x27;src/app/modules/flores/modules/taxref/taxref.model&#x27;;
+import { SpinnerComponent } from &#x27;src/app/shared/modules/spinner/spinner.component&#x27;;
+import { TriForm } from &#x27;../../forms/triForm&#x27;;
+import { TriModel } from &#x27;../../models/tri.model&#x27;;
+import { TrisService } from &#x27;../../services/tris.service&#x27;;
+
+@Component({
+  selector: &#x27;tri-edit&#x27;,
+  templateUrl: &#x27;./tri-edit.component.html&#x27;,
+  styles: [
+    &#x60;:host { display: block; position: relative; }&#x60;,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class TriEditComponent implements OnInit, OnDestroy {
+
+  @ViewChild(SpinnerComponent) spinner!: SpinnerComponent
+
+  private onComponentDestroy$ &#x3D; new Subject();
+
+  public data: { tri: TriModel, selectedTaxon: Taxon } &#x3D; {
+    tri: new TriModel(),
+    selectedTaxon: new Taxon(),
+
+  }
+
+  public triForm &#x3D; new TriForm( this.fb );
+  public fg &#x3D; this.triForm.fg;
+
+
+  constructor(
+    private cdRef: ChangeDetectorRef,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private triSvc : TrisService,) { }
+
+
+  ngOnInit(): void {
+    const id &#x3D; parseInt(this.route.snapshot.paramMap.get(&#x27;id&#x27;)!);
+
+    if ( id ) {
+      this.getItem(id);
+    } else {
+
+    }
+
+    this.triForm.tri_origin.valueChanges.pipe(
+      tap( (event: string) &#x3D;&gt; {
+        if (event &#x3D;&#x3D;&#x3D; &#x27;other&#x27;) {
+          this.triForm.tri_origin_other.setValidators(Validators.required);
+        } else {
+          this.triForm.tri_origin_other.clearValidators();
+          this.triForm.tri_origin_other.reset();
+        }
+        this.triForm.tri_origin_other.updateValueAndValidity();
+      } )
+    ).subscribe(
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.onComponentDestroy$.next();
+    this.onComponentDestroy$.complete();
+  }
+
+
+  getItem &#x3D; ( id: number ): void &#x3D;&gt; {
+    this.triSvc.get(id).subscribe(
+      ( response: TriModel ) &#x3D;&gt; {
+        this.data.tri &#x3D; new TriModel({ ...response });
+        this.triForm.patchValue(response);
+        this.data.selectedTaxon &#x3D; new Taxon({
+          referenceId: this.data.tri.cd_ref,
+          scientificName: this.data.tri.nom_botanique,
+        });
+        this.cdRef.markForCheck();
+      }
+    )
+  }
+
+
+  deleteItem() {
+
+  }
+
+
+  submitItem() {
+    if ( this.triForm.fg.status !&#x3D;&#x3D; &#x27;VALID&#x27; ) {
+      let controls: { [key: string]: AbstractControl; } &#x3D; this.triForm.fg.controls;
+      for ( let ctrl in controls ) {
+        controls[ctrl].markAsDirty();
+        if ( controls[ctrl].status !&#x3D;&#x3D; &#x27;VALID&#x27; ) {
+          console.log(ctrl, controls[ctrl].errors)
+        }
+
+      }
+      return;
+    };
+
+    this.spinner.show();
+    this.triSvc.store( this.triForm.fg.value )
+      .pipe(
+        finalize(() &#x3D;&gt; {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(
+        (response:any) &#x3D;&gt; {
+          this.triForm.patchValue(response);
+        }
+      );
+  }
+
+
+  onTaxonSelect( taxon: any ) {
+    this.triForm.nom_botanique.setValue(taxon.scientificName);
+    this.triForm.cd_ref.setValue(taxon.referenceId);
+  }
+
+
+  onFruitsEtatChange(event: any) {
+    if (event.target.checked) {
+      this.triForm.fruits_etat.push(new FormControl(event.target.value))
+    } else {
+      const index &#x3D; this.triForm.fruits_etat.controls.findIndex( el &#x3D;&gt; el.value &#x3D;&#x3D;&#x3D; event.target.value );
+      if ( index !&#x3D;&#x3D; -1 ) {
+        this.triForm.fruits_etat.removeAt(index);
+      }
+    }
+  }
+
+
+  onGrainesEtatChange(event: any) {
+    this.triForm.graines_etat.controls.splice(0,1);
+    this.triForm.graines_etat.push(new FormControl(event.target.value))
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nav aria-label&#x3D;&quot;breadcrumb&quot;&gt;
+  &lt;ol class&#x3D;&quot;breadcrumb text-upper-small&quot;&gt;
+    &lt;li class&#x3D;&quot;breadcrumb-item&quot;&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;/tris&#x27;]&quot;&gt;Tris&lt;/a&gt;&lt;/li&gt;
+    &lt;li class&#x3D;&quot;breadcrumb-item active&quot; aria-current&#x3D;&quot;page&quot;&gt;Tri&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;div class&#x3D;&quot;header&quot;&gt;
+  &lt;div class&#x3D;&quot;header-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+      &lt;div class&#x3D;&quot;col&quot;&gt;
+        &lt;h1 class&#x3D;&quot;header-title text-truncate&quot;&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;triForm.id?.value; else newTri&quot;&gt;
+            Modification tri
+          &lt;/ng-container&gt;
+          &lt;ng-template #newTri&gt; Nouveau tri &lt;/ng-template&gt;
+        &lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-auto&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; label&#x3D;&quot;Delete&quot; class&#x3D;&quot;btn btn-danger ms-2 d-flex&quot; (click)&#x3D;&quot;deleteItem()&quot;
+                [disabled]&#x3D;&quot;!data.tri.id&quot;&gt;
+          &lt;span class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+            delete_forever
+          &lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;card&quot;&gt;
+  &lt;div class&#x3D;&quot;card-body&quot;&gt;
+    &lt;form name&#x3D;&quot;stagiaireForm&quot; [formGroup]&#x3D;&quot;triForm.fg&quot; (ngSubmit)&#x3D;&quot;submitItem()&quot;&gt;
+
+      &lt;p class&#x3D;&quot;text-required&quot;&gt;&lt;small class&#x3D;&quot;text-muted&quot;&gt;Les champs suivis d&#x27;un &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; sont obligatoires.&lt;/small&gt;&lt;/p&gt;
+        &lt;div  class&#x3D;&quot;col-md-6&quot; &gt;
+
+          &lt;!-- Nom botanique --&gt;
+          &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;nom_botanique&quot; class&#x3D;&quot;form-label required&quot;&gt;Nom botanique&lt;/label&gt;
+            &lt;app-taxref [selectedTaxon]&#x3D;&quot;data.selectedTaxon&quot; (taxonSelected)&#x3D;&quot;onTaxonSelect($event)&quot;&gt;&lt;/app-taxref&gt;
+
+            &lt;input type&#x3D;&quot;hidden&quot; id&#x3D;&quot;nom_botanique&quot;
+                   formControlName&#x3D;&quot;nom_botanique&quot; required&gt;
+            &lt;div  *ngIf&#x3D;&quot;(triForm.nom_botanique?.invalid &amp;&amp; (triForm.nom_botanique?.dirty || triForm.nom_botanique?.touched))&quot;
+                  class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.nom_botanique?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner un nom botanique
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Numéro d&#x27;accession --&gt;
+          &lt;div class&#x3D;&quot;form-group col-md-6 g-0 mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;num_accession&quot; class&#x3D;&quot;form-label required&quot;&gt;Numéro d&#x27;accession&lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;num_accession&quot; placeholder&#x3D;&quot;WS 22-1&quot;
+                  formControlName&#x3D;&quot;num_accession&quot; required&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.num_accession?.invalid &amp;&amp; (triForm.num_accession?.dirty || triForm.num_accession?.touched))&quot;
+                  class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.num_accession?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner un numéro d&#x27;accession
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.num_accession?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+               Le numéro d&#x27;accession est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;div  class&#x3D;&quot;col-md-6&quot; &gt;
+
+          &lt;!-- Date de tri --&gt;
+          &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;tri_date&quot; class&#x3D;&quot;form-label required&quot;&gt;Date de tri&lt;/label&gt;
+            &lt;input type&#x3D;&quot;date&quot;
+                   pattern&#x3D;&quot;^(\d{4}-\d{2}-\d{2}(.*))?&quot;class&#x3D;&quot;form-control&quot; id&#x3D;&quot;tri_date&quot;
+                   formControlName&#x3D;&quot;tri_date&quot; required&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.tri_date?.invalid &amp;&amp; (triForm.tri_date?.dirty || triForm.tri_date?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.tri_date?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner une date
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Agent(s) --&gt;
+          &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;agents&quot; class&#x3D;&quot;form-label required&quot;&gt;Agent(s)&lt;/label&gt;
+            &lt;input type&#x3D;&quot;hidden&quot; minlength&#x3D;&quot;1&quot; formControlName&#x3D;&quot;agents&quot; required&gt;
+            &lt;agents-select [formInput]&#x3D;&quot;triForm.agents&quot; [selectedAgents]&#x3D;&quot;data.tri.agents&quot;&gt;&lt;/agents-select&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.agents?.invalid &amp;&amp; (triForm.agents?.dirty || triForm.agents?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.agents?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner au minimum 1 agent
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Origine du lot --&gt;
+          &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;tri_origin&quot; class&#x3D;&quot;form-label required&quot;&gt;Origine du lot&lt;/label&gt;
+            &lt;select class&#x3D;&quot;form-select&quot;  id&#x3D;&quot;tri_origin&quot; name&#x3D;&quot;tri_origin&quot; aria-label&#x3D;&quot;Origine du lot à trier&quot;
+                    formControlName&#x3D;&quot;tri_origin&quot; required&gt;
+              &lt;option&gt;&lt;/option&gt;
+              &lt;option value&#x3D;&quot;terrain&quot;&gt;Terrain&lt;/option&gt;
+              &lt;option value&#x3D;&quot;frigoES&quot;&gt;Frigo Étang-Salé&lt;/option&gt;
+              &lt;option value&#x3D;&quot;frigoBN&quot;&gt;Frigo Bois de Nèfles&lt;/option&gt;
+              &lt;option value&#x3D;&quot;other&quot;&gt;Autres :&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;div  *ngIf&#x3D;&quot;(triForm.tri_origin?.invalid &amp;&amp; (triForm.tri_origin?.dirty || triForm.tri_origin?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.tri_origin?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez sélectionner une origine
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control mt-2&quot; id&#x3D;&quot;tri_origin_other&quot; name&#x3D;&quot;tri_origin_other&quot;
+                   formControlName&#x3D;&quot;tri_origin_other&quot;
+                   *ngIf&#x3D;&quot;this.triForm.tri_origin.value&#x3D;&#x3D;&#x3D;&#x27;other&#x27;&quot;&gt;
+            &lt;div  *ngIf&#x3D;&quot;(triForm.tri_origin_other?.invalid &amp;&amp; (triForm.tri_origin_other?.dirty || triForm.tri_origin_other?.touched))&quot;
+                  class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.tri_origin_other?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir une origine
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+      &lt;h3&gt;Fruits&lt;/h3&gt;
+
+      &lt;div class&#x3D;&quot;row col-md-6&quot;&gt;
+        &lt;!-- &lt;div class&#x3D;&quot;col-md-6&quot;&gt; --&gt;
+          &lt;!-- Poids --&gt;
+          &lt;div class&#x3D;&quot;col-md-6 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;fruits_pds&quot; class&#x3D;&quot;form-label required&quot;&gt;Poids&lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;0.0001&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;fruits_pds&quot; name&#x3D;&quot;fruits_pds&quot;
+                   formControlName&#x3D;&quot;fruits_pds&quot; required&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.fruits_pds?.invalid &amp;&amp; (triForm.fruits_pds?.dirty || triForm.fruits_pds?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.fruits_pds?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner un poids
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.fruits_pds?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                Le poids indiqué est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Nombre --&gt;
+          &lt;div class&#x3D;&quot;col-md-6 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;fruits_nb&quot; class&#x3D;&quot;form-label required&quot;&gt;Nombre&lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;1&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;fruits_nb&quot;
+                   formControlName&#x3D;&quot;fruits_nb&quot; required&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.fruits_nb?.invalid &amp;&amp; (triForm.fruits_nb?.dirty || triForm.fruits_nb?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.fruits_nb?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner une quantité
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.fruits_nb?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                La quantité indiquée est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;!-- &lt;/div&gt; --&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;!-- Etat --&gt;
+          &lt;div class&#x3D;&quot;col-md-4 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;fruits_etat&quot; class&#x3D;&quot;form-label required&quot;&gt;État&lt;/label&gt;
+            &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+              &lt;div class&#x3D;&quot;form-check d-inline-flex me-4&quot; *ngFor&#x3D;&quot;let etat of triForm.data.triFruitsEtat; let i&#x3D;index&quot;&gt;
+                &lt;input class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;check-mature{{i}}&quot;
+                      formArrayName&#x3D;&quot;fruits_etat&quot; [value]&#x3D;&quot;etat.value&quot; [checked]&#x3D;&quot;etat.checked&quot;
+                      (change)&#x3D;&quot;onFruitsEtatChange($event)&quot;&gt;
+                &lt;label class&#x3D;&quot;form-check-label ms-1&quot; for&#x3D;&quot;check-mature{{i}}&quot;&gt;
+                  {{ etat.lbl }}
+                &lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;h3&gt;Graines&lt;/h3&gt;
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+
+          &lt;!-- Poids total --&gt;
+          &lt;div class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;graines_pds&quot; class&#x3D;&quot;form-label required&quot;&gt;Poids total&lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;0.0001&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_pds&quot;
+                   formControlName&#x3D;&quot;graines_pds&quot; required&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.graines_pds?.invalid &amp;&amp; (triForm.graines_pds?.dirty || triForm.graines_pds?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_pds?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner un poids
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_pds?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                Le poids indiqué est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Poids 100g --&gt;
+          &lt;div  class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;graines_100pds&quot; class&#x3D;&quot;form-label&quot;&gt; Poids 100 graines &lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;0.0001&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_100pds&quot;
+                   formControlName&#x3D;&quot;graines_100pds&quot;&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.graines_100pds?.invalid &amp;&amp; (triForm.graines_100pds?.dirty || triForm.graines_100pds?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_100pds?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                Le poids indiqué est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Poids 1000g --&gt;
+          &lt;div class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;graines_1000pds&quot; class&#x3D;&quot;form-label&quot;&gt; Poids 1000 graines &lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;0.0001&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_1000pds&quot;
+                   formControlName&#x3D;&quot;graines_1000pds&quot;&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.graines_1000pds?.invalid &amp;&amp; (triForm.graines_1000pds?.dirty || triForm.graines_1000pds?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_1000pds?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                Le poids indiqué est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+
+        &lt;!-- Nombre estimé --&gt;
+        &lt;div class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+          &lt;label for&#x3D;&quot;graines_nb_estime&quot; class&#x3D;&quot;form-label required&quot;&gt; Nombre (estimé) &lt;/label&gt;
+          &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;1&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_nb_estime&quot;
+                 formControlName&#x3D;&quot;graines_nb_estime&quot; required&gt;
+
+          &lt;div  *ngIf&#x3D;&quot;(triForm.graines_nb_estime?.invalid &amp;&amp; (triForm.graines_nb_estime?.dirty || triForm.graines_nb_estime?.touched))&quot;
+                 class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;triForm.graines_nb_estime?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Veuillez saisir/sélectionner une quantité
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;triForm.graines_nb_estime?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+              La quantité indiquée est invalide
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Nombre compté --&gt;
+        &lt;div class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+          &lt;label for&#x3D;&quot;graines_nb&quot; class&#x3D;&quot;form-label required&quot;&gt; Nombre (compté) &lt;/label&gt;
+          &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;1&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_nb&quot;
+                 formControlName&#x3D;&quot;graines_nb&quot; required&gt;
+
+          &lt;div  *ngIf&#x3D;&quot;(triForm.graines_nb?.invalid &amp;&amp; (triForm.graines_nb?.dirty || triForm.graines_nb?.touched))&quot;
+                 class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;triForm.graines_nb?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Veuillez saisir/sélectionner une quantité
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;triForm.graines_nb?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+              La quantité indiquée est invalide
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;row&quot; &gt;
+        &lt;!-- Etat --&gt;
+        &lt;div class&#x3D;&quot;col-md-4 form-group mb-3&quot;&gt;
+          &lt;label for&#x3D;&quot;graines_etat&quot; class&#x3D;&quot;form-label&quot;&gt;État&lt;/label&gt;
+          &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+            &lt;div class&#x3D;&quot;form-check d-inline-flex me-4&quot; *ngFor&#x3D;&quot;let etat of triForm.data.triGrainesEtat let i&#x3D;index&quot;&gt;
+              &lt;input class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;radio&quot; id&#x3D;&quot;radio-etat{{i}}&quot; name&#x3D;&quot;radion-etat&quot;
+                    formArrayName&#x3D;&quot;graines_etat&quot; [value]&#x3D;&quot;etat.value&quot; [checked]&#x3D;&quot;etat.checked&quot;
+                    (change)&#x3D;&quot;onGrainesEtatChange($event)&quot;&gt;
+              &lt;label class&#x3D;&quot;form-check-label ms-1&quot; for&#x3D;&quot;radio-etat{{i}}&quot;&gt;
+                {{ etat.lbl }}
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;!-- graines_trash_pds --&gt;
+          &lt;div class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;graines_trash_pds&quot; class&#x3D;&quot;form-label&quot;&gt; Poids de graines au rebut &lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;0.0001&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_trash_pds&quot;
+                   formControlName&#x3D;&quot;graines_trash_pds&quot;&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.graines_trash_pds?.invalid &amp;&amp; (triForm.graines_trash_pds?.dirty || triForm.graines_trash_pds?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_trash_pds?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner un poids
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_trash_pds?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                Le poids indiqué est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- graines_trash_pds --&gt;
+          &lt;div class&#x3D;&quot;col-md-3 form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;graines_trash_nb&quot; class&#x3D;&quot;form-label&quot;&gt; Nombre de graines au rebut &lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; step&#x3D;&quot;1&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;graines_trash_nb&quot;
+                   formControlName&#x3D;&quot;graines_trash_nb&quot;&gt;
+
+            &lt;div  *ngIf&#x3D;&quot;(triForm.graines_trash_nb?.invalid &amp;&amp; (triForm.graines_trash_nb?.dirty || triForm.graines_trash_nb?.touched))&quot;
+                   class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_nb?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Veuillez saisir/sélectionner une quantité
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;triForm.graines_trash_nb?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+                La quantité indiquée est invalide
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div  class&#x3D;&quot;col&quot; &gt;
+
+          &lt;!-- Raison de la mise au rebut --&gt;
+          &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;graines_trash_raison&quot; class&#x3D;&quot;form-label&quot;&gt; Raison de la mise au rebut &lt;/label&gt;
+            &lt;textarea rows&#x3D;&quot;3&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;graines_trash_raison&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div  class&#x3D;&quot;col-md-3&quot; &gt;
+          &lt;!-- Durée du tri --&gt;
+          &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+            &lt;label for&#x3D;&quot;tri_duree&quot; class&#x3D;&quot;form-label required&quot;&gt; Durée du tri et nettoyage&lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;tri_duree&quot; placeholder&#x3D;&quot;1:20&quot;
+                   formControlName&#x3D;&quot;tri_duree&quot; required&gt;
+          &lt;/div&gt;
+
+          &lt;div  *ngIf&#x3D;&quot;(triForm.tri_duree?.invalid &amp;&amp; (triForm.tri_duree?.dirty || triForm.tri_duree?.touched))&quot;
+                 class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;triForm.tri_duree?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Veuillez saisir/sélectionner une durée
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;triForm.tri_duree?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+              La durée indiquée est invalide
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Enregistrer&lt;/button&gt;
+
+
+
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;app-spinner&gt;&lt;/app-spinner&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+            <pre class="line-numbers"><code class="language-scss">:host { display: block; position: relative; }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nav aria-label="breadcrumb">  <ol class="breadcrumb text-upper-small">    <li class="breadcrumb-item"><a [routerLink]="[\'/tris\']">Tris</a></li>    <li class="breadcrumb-item active" aria-current="page">Tri</li>  </ol></nav><div class="header">  <div class="header-body">    <div class="row align-items-center">      <div class="col">        <h1 class="header-title text-truncate">          <ng-container *ngIf="triForm.id?.value; else newTri">            Modification tri          </ng-container>          <ng-template #newTri> Nouveau tri </ng-template>        </h1>      </div>      <div class="col-auto">        <button type="button" label="Delete" class="btn btn-danger ms-2 d-flex" (click)="deleteItem()"                [disabled]="!data.tri.id">          <span class="material-symbols-outlined">            delete_forever          </span>        </button>      </div>    </div>  </div></div><div class="card">  <div class="card-body">    <form name="stagiaireForm" [formGroup]="triForm.fg" (ngSubmit)="submitItem()">      <p class="text-required"><small class="text-muted">Les champs suivis d\'un <span class="text-danger">*</span> sont obligatoires.</small></p>        <div  class="col-md-6" >          <!-- Nom botanique -->          <div class="form-group mb-3">            <label for="nom_botanique" class="form-label required">Nom botanique</label>            <app-taxref [selectedTaxon]="data.selectedTaxon" (taxonSelected)="onTaxonSelect($event)"></app-taxref>            <input type="hidden" id="nom_botanique"                   formControlName="nom_botanique" required>            <div  *ngIf="(triForm.nom_botanique?.invalid && (triForm.nom_botanique?.dirty || triForm.nom_botanique?.touched))"                  class="invalid-feedback d-block">              <div *ngIf="triForm.nom_botanique?.errors?.[\'required\']">                Veuillez saisir/sélectionner un nom botanique              </div>            </div>          </div>          <!-- Numéro d\'accession -->          <div class="form-group col-md-6 g-0 mb-3">            <label for="num_accession" class="form-label required">Numéro d\'accession</label>            <input type="text" class="form-control" id="num_accession" placeholder="WS 22-1"                  formControlName="num_accession" required>            <div  *ngIf="(triForm.num_accession?.invalid && (triForm.num_accession?.dirty || triForm.num_accession?.touched))"                  class="invalid-feedback d-block">              <div *ngIf="triForm.num_accession?.errors?.[\'required\']">                Veuillez saisir/sélectionner un numéro d\'accession              </div>              <div *ngIf="triForm.num_accession?.errors?.[\'pattern\']">               Le numéro d\'accession est invalide              </div>            </div>          </div>        </div>        <div  class="col-md-6" >          <!-- Date de tri -->          <div class="form-group mb-3">            <label for="tri_date" class="form-label required">Date de tri</label>            <input type="date"                   pattern="^(\d{4}-\d{2}-\d{2}(.*))?"class="form-control" id="tri_date"                   formControlName="tri_date" required>            <div  *ngIf="(triForm.tri_date?.invalid && (triForm.tri_date?.dirty || triForm.tri_date?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.tri_date?.errors?.[\'required\']">                Veuillez saisir/sélectionner une date              </div>            </div>          </div>          <!-- Agent(s) -->          <div class="form-group mb-3">            <label for="agents" class="form-label required">Agent(s)</label>            <input type="hidden" minlength="1" formControlName="agents" required>            <agents-select [formInput]="triForm.agents" [selectedAgents]="data.tri.agents"></agents-select>            <div  *ngIf="(triForm.agents?.invalid && (triForm.agents?.dirty || triForm.agents?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.agents?.errors?.[\'required\']">                Veuillez saisir/sélectionner au minimum 1 agent              </div>            </div>          </div>          <!-- Origine du lot -->          <div class="form-group mb-3">            <label for="tri_origin" class="form-label required">Origine du lot</label>            <select class="form-select"  id="tri_origin" name="tri_origin" aria-label="Origine du lot à trier"                    formControlName="tri_origin" required>              <option></option>              <option value="terrain">Terrain</option>              <option value="frigoES">Frigo Étang-Salé</option>              <option value="frigoBN">Frigo Bois de Nèfles</option>              <option value="other">Autres :</option>            </select>            <div  *ngIf="(triForm.tri_origin?.invalid && (triForm.tri_origin?.dirty || triForm.tri_origin?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.tri_origin?.errors?.[\'required\']">                Veuillez sélectionner une origine              </div>            </div>            <input type="text" class="form-control mt-2" id="tri_origin_other" name="tri_origin_other"                   formControlName="tri_origin_other"                   *ngIf="this.triForm.tri_origin.value===\'other\'">            <div  *ngIf="(triForm.tri_origin_other?.invalid && (triForm.tri_origin_other?.dirty || triForm.tri_origin_other?.touched))"                  class="invalid-feedback d-block">              <div *ngIf="triForm.tri_origin_other?.errors?.[\'required\']">                Veuillez saisir une origine              </div>            </div>          </div>        </div>      <h3>Fruits</h3>      <div class="row col-md-6">        <!-- <div class="col-md-6"> -->          <!-- Poids -->          <div class="col-md-6 form-group mb-3">            <label for="fruits_pds" class="form-label required">Poids</label>            <input type="number" step="0.0001" class="form-control" id="fruits_pds" name="fruits_pds"                   formControlName="fruits_pds" required>            <div  *ngIf="(triForm.fruits_pds?.invalid && (triForm.fruits_pds?.dirty || triForm.fruits_pds?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.fruits_pds?.errors?.[\'required\']">                Veuillez saisir/sélectionner un poids              </div>              <div *ngIf="triForm.fruits_pds?.errors?.[\'pattern\']">                Le poids indiqué est invalide              </div>            </div>          </div>          <!-- Nombre -->          <div class="col-md-6 form-group mb-3">            <label for="fruits_nb" class="form-label required">Nombre</label>            <input type="number" step="1" class="form-control" id="fruits_nb"                   formControlName="fruits_nb" required>            <div  *ngIf="(triForm.fruits_nb?.invalid && (triForm.fruits_nb?.dirty || triForm.fruits_nb?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.fruits_nb?.errors?.[\'required\']">                Veuillez saisir/sélectionner une quantité              </div>              <div *ngIf="triForm.fruits_nb?.errors?.[\'pattern\']">                La quantité indiquée est invalide              </div>            </div>          </div>        <!-- </div> -->      </div>      <div class="row">          <!-- Etat -->          <div class="col-md-4 form-group mb-3">            <label for="fruits_etat" class="form-label required">État</label>            <div class="d-flex">              <div class="form-check d-inline-flex me-4" *ngFor="let etat of triForm.data.triFruitsEtat; let i=index">                <input class="form-check-input" type="checkbox" id="check-mature{{i}}"                      formArrayName="fruits_etat" [value]="etat.value" [checked]="etat.checked"                      (change)="onFruitsEtatChange($event)">                <label class="form-check-label ms-1" for="check-mature{{i}}">                  {{ etat.lbl }}                </label>              </div>            </div>          </div>      </div>      <h3>Graines</h3>      <div class="row">          <!-- Poids total -->          <div class="col-md-3 form-group mb-3">            <label for="graines_pds" class="form-label required">Poids total</label>            <input type="number" step="0.0001" class="form-control" id="graines_pds"                   formControlName="graines_pds" required>            <div  *ngIf="(triForm.graines_pds?.invalid && (triForm.graines_pds?.dirty || triForm.graines_pds?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.graines_pds?.errors?.[\'required\']">                Veuillez saisir/sélectionner un poids              </div>              <div *ngIf="triForm.graines_pds?.errors?.[\'pattern\']">                Le poids indiqué est invalide              </div>            </div>          </div>          <!-- Poids 100g -->          <div  class="col-md-3 form-group mb-3">            <label for="graines_100pds" class="form-label"> Poids 100 graines </label>            <input type="number" step="0.0001" class="form-control" id="graines_100pds"                   formControlName="graines_100pds">            <div  *ngIf="(triForm.graines_100pds?.invalid && (triForm.graines_100pds?.dirty || triForm.graines_100pds?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.graines_100pds?.errors?.[\'pattern\']">                Le poids indiqué est invalide              </div>            </div>          </div>          <!-- Poids 1000g -->          <div class="col-md-3 form-group mb-3">            <label for="graines_1000pds" class="form-label"> Poids 1000 graines </label>            <input type="number" step="0.0001" class="form-control" id="graines_1000pds"                   formControlName="graines_1000pds">            <div  *ngIf="(triForm.graines_1000pds?.invalid && (triForm.graines_1000pds?.dirty || triForm.graines_1000pds?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.graines_1000pds?.errors?.[\'pattern\']">                Le poids indiqué est invalide              </div>            </div>          </div>      </div>      <div class="row">        <!-- Nombre estimé -->        <div class="col-md-3 form-group mb-3">          <label for="graines_nb_estime" class="form-label required"> Nombre (estimé) </label>          <input type="number" step="1" class="form-control" id="graines_nb_estime"                 formControlName="graines_nb_estime" required>          <div  *ngIf="(triForm.graines_nb_estime?.invalid && (triForm.graines_nb_estime?.dirty || triForm.graines_nb_estime?.touched))"                 class="invalid-feedback d-block">            <div *ngIf="triForm.graines_nb_estime?.errors?.[\'required\']">              Veuillez saisir/sélectionner une quantité            </div>            <div *ngIf="triForm.graines_nb_estime?.errors?.[\'pattern\']">              La quantité indiquée est invalide            </div>          </div>        </div>        <!-- Nombre compté -->        <div class="col-md-3 form-group mb-3">          <label for="graines_nb" class="form-label required"> Nombre (compté) </label>          <input type="number" step="1" class="form-control" id="graines_nb"                 formControlName="graines_nb" required>          <div  *ngIf="(triForm.graines_nb?.invalid && (triForm.graines_nb?.dirty || triForm.graines_nb?.touched))"                 class="invalid-feedback d-block">            <div *ngIf="triForm.graines_nb?.errors?.[\'required\']">              Veuillez saisir/sélectionner une quantité            </div>            <div *ngIf="triForm.graines_nb?.errors?.[\'pattern\']">              La quantité indiquée est invalide            </div>          </div>        </div>      </div>      <div class="row" >        <!-- Etat -->        <div class="col-md-4 form-group mb-3">          <label for="graines_etat" class="form-label">État</label>          <div class="d-flex">            <div class="form-check d-inline-flex me-4" *ngFor="let etat of triForm.data.triGrainesEtat let i=index">              <input class="form-check-input" type="radio" id="radio-etat{{i}}" name="radion-etat"                    formArrayName="graines_etat" [value]="etat.value" [checked]="etat.checked"                    (change)="onGrainesEtatChange($event)">              <label class="form-check-label ms-1" for="radio-etat{{i}}">                {{ etat.lbl }}              </label>            </div>          </div>        </div>      </div>      <div class="row">          <!-- graines_trash_pds -->          <div class="col-md-3 form-group mb-3">            <label for="graines_trash_pds" class="form-label"> Poids de graines au rebut </label>            <input type="number" step="0.0001" class="form-control" id="graines_trash_pds"                   formControlName="graines_trash_pds">            <div  *ngIf="(triForm.graines_trash_pds?.invalid && (triForm.graines_trash_pds?.dirty || triForm.graines_trash_pds?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.graines_trash_pds?.errors?.[\'required\']">                Veuillez saisir/sélectionner un poids              </div>              <div *ngIf="triForm.graines_trash_pds?.errors?.[\'pattern\']">                Le poids indiqué est invalide              </div>            </div>          </div>          <!-- graines_trash_pds -->          <div class="col-md-3 form-group mb-3">            <label for="graines_trash_nb" class="form-label"> Nombre de graines au rebut </label>            <input type="number" step="1" class="form-control" id="graines_trash_nb"                   formControlName="graines_trash_nb">            <div  *ngIf="(triForm.graines_trash_nb?.invalid && (triForm.graines_trash_nb?.dirty || triForm.graines_trash_nb?.touched))"                   class="invalid-feedback d-block">              <div *ngIf="triForm.graines_nb?.errors?.[\'required\']">                Veuillez saisir/sélectionner une quantité              </div>              <div *ngIf="triForm.graines_trash_nb?.errors?.[\'pattern\']">                La quantité indiquée est invalide              </div>            </div>          </div>      </div>      <div class="row">        <div  class="col" >          <!-- Raison de la mise au rebut -->          <div class="form-group mb-3">            <label for="graines_trash_raison" class="form-label"> Raison de la mise au rebut </label>            <textarea rows="3" class="form-control" formControlName="graines_trash_raison"></textarea>          </div>        </div>      </div>      <div class="row">        <div  class="col-md-3" >          <!-- Durée du tri -->          <div class="form-group mb-3">            <label for="tri_duree" class="form-label required"> Durée du tri et nettoyage</label>            <input type="text" class="form-control" id="tri_duree" placeholder="1:20"                   formControlName="tri_duree" required>          </div>          <div  *ngIf="(triForm.tri_duree?.invalid && (triForm.tri_duree?.dirty || triForm.tri_duree?.touched))"                 class="invalid-feedback d-block">            <div *ngIf="triForm.tri_duree?.errors?.[\'required\']">              Veuillez saisir/sélectionner une durée            </div>            <div *ngIf="triForm.tri_duree?.errors?.[\'pattern\']">              La durée indiquée est invalide            </div>          </div>        </div>      </div>      <button type="submit" class="btn btn-primary">Enregistrer</button>    </form>  </div></div><app-spinner></app-spinner></div>'
+    var COMPONENTS = [{'name': 'AgentsSelectComponent', 'selector': 'agents-select'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TaxrefComponent', 'selector': 'app-taxref'},{'name': 'TriEditComponent', 'selector': 'tri-edit'},{'name': 'TrisComponent', 'selector': 'app-tris'},{'name': 'TrisFiltersComponent', 'selector': 'tris-filters'},{'name': 'TrisTableComponent', 'selector': 'tris-table'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TriEditComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TriEditComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

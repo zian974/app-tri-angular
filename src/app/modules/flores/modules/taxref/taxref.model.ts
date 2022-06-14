@@ -20,11 +20,12 @@ export interface Taxon {
 
 
 export class Taxon {
+
   fullNameHtml: string = '';
-  id?: number;
-  parentId?: number;
-  referenceId?: number;
-  referenceNameHtml?: string;
+  id: number|null = null;
+  parentId: number|null = null;
+  referenceId: number|null = null;
+  referenceNameHtml: string = '';
   scientificName: string = '';
 
   public constructor(init?:Partial<Taxon>) {

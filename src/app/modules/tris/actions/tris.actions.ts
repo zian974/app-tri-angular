@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { TrisFilters } from '../forms/trisFiltersForm';
+import { TrisFiltersModel } from '../models/tris-filters.model';
 
 export const populateFilters = createAction(
   '[Tris List] Populate filters',
-  props<TrisFilters>()
+  props<TrisFiltersModel>()
 );

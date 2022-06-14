@@ -1,7 +1,7 @@
 import { formatDate } from "@angular/common";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Agent } from "../../models/agent";
-import { Tri } from "../models/tri";
+import { TriModel } from "../models/tri.model";
 
 export class TriForm {
 
@@ -152,7 +152,7 @@ export class TriForm {
    *
    * @param value FormGroupOBject
    */
-  public patchValue( values: Tri ): void {
+  public patchValue( values: TriModel ): void {
 
     for ( let [key, value] of Object.entries( values ) ) {
       if ( this.fg.get(key) ) {
@@ -201,7 +201,7 @@ export class TriForm {
   }
 
 
-  public updateValidators = ( tri: Tri|null ): void => {
+  public updateValidators = ( tri: TriModel|null ): void => {
 
     if ( tri === null ) {
       return;
