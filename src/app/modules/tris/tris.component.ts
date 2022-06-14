@@ -1,11 +1,7 @@
 import { AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { finalize, take } from 'rxjs/operators';
 import { SpinnerComponent } from 'src/app/shared/modules/spinner/spinner.component';
-import { populateFilters } from './actions/tris.actions';
-import { trisFiltersSelector } from './actions/tris.selector';
 import { TrisFiltersModel } from './models/tris-filters.model';
 import { TrisModel } from './models/tris.model';
 import { TrisService } from './services/tris.service';
@@ -29,7 +25,7 @@ interface ComponentData {
   styleUrls: ['./tris.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
+export class TrisComponent implements OnInit, OnDestroy {
 
   /**
    * Spinner à afficher lors des requêtes HTTP
@@ -47,14 +43,14 @@ export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
     filters: new TrisFiltersModel
   }
 
+
   constructor(
       private cdRef: ChangeDetectorRef,
       private client : TrisService,
-      private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
-
+    let a;
   }
 
   ngOnDestroy() {
@@ -63,30 +59,31 @@ export class TrisComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-  ngAfterViewInit() {
-
-  }
-
-
   index = ( filters: TrisFiltersModel = new TrisFiltersModel ) => {
 
+    // Affiche le spinner
     this.spinner.show();
+
     this.client.index( filters )
       .pipe(
+        // Cache le spinner
         finalize(() => this.spinner.hide())
       )
       .subscribe(
         (response: any ) => {
-          console.log('Response', response)
           this.data.tris = new TrisModel(response);
           this.cdRef.markForCheck();
         }
     );
+
   }
 
 
+  /**
+   * @listens TrisFilters#filtersChanged
+   * @param filters Filtres de recherche
+   */
   onFiltersChanged( filters: TrisFiltersModel ): void {
-    console.log('TrisComponent: onFiltersChanged')
     this.index(filters);
   }
 

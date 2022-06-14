@@ -8,6 +8,12 @@ import { trisFiltersSelector } from '../../actions/tris.selector';
 import { TrisFiltersForm } from '../../forms/trisFiltersForm';
 import { TrisFiltersModel } from '../../models/tris-filters.model';
 
+
+/**
+ * @module TrisFiltersComponent
+ * @event module:TrisFiltersComponent~filtersChanged
+ */
+
 @Component({
   selector: 'tris-filters',
   templateUrl: './tris-filters.component.html',
@@ -16,10 +22,13 @@ import { TrisFiltersModel } from '../../models/tris-filters.model';
 })
 export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @Input() set filters( filters: TrisFiltersModel) {
-    this.filtersForm.patchValue(filters);
-  }
 
+
+  /**
+   * EventEmitter lancé à la soumission du formulaire
+   *
+   * @event module:TrisFiltersComponent~onClickOutside
+   */
   @Output() filtersChanged = new EventEmitter();
 
 
@@ -55,7 +64,7 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
 
-    this.filterOnInit();
+    this.initData();
 
     this.filtersForm.fg.valueChanges
       .pipe(
@@ -80,6 +89,9 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       );
 
+    /**
+     * @fires module:TrisFiltersComponent~onClickOutside
+     */
     this.unlistenDocumentClick$ = this.renderer.listen(document, 'click', (e: MouseEvent) => {
       this.onClickOutside(e)
     });
@@ -91,9 +103,9 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   /**
-   * Recherche les données à l'initialisation à l'aide des filtres enregistrés
+   * Récupère les données avec les filtres enregistrés dans le Store
    */
-  filterOnInit = (): void => {
+   initData = (): void => {
     this.store.select(trisFiltersSelector)
       .pipe(
         take(1)
@@ -119,13 +131,29 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-  onSubmit() {
+  /**
+   * Envoi du formualire de recherche
+   *
+   * @fires module:TrisFiltersComponent~filtersChanged
+   */
+  onSubmit(): void {
+    /**
+     * filtersChanged Event
+     * @listens module:TrisFiltersComponent~filtersChanged
+     */
     this.filtersChanged.emit(this.filtersForm.fg.value);
+
+    // On enregistre les filtres dans le store
     this.store.dispatch( populateFilters(this.filtersForm.fg.value) );
   }
 
 
-  onClickOutside(event: MouseEvent) {
+  /**
+   * @listens module:TrisFiltersComponent~onClickOutside
+   *
+   * @param event
+   */
+  onClickOutside(event: MouseEvent): void {
     let filterContainer = this.element.nativeElement.querySelector('.trisFiltersContainer');
     if (filterContainer && !this.element.nativeElement.querySelector('.trisFiltersContainer').contains(event.target)) {
       this.toggleFilters( event );

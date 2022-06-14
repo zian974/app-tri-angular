@@ -14,6 +14,7 @@ export class TrisFiltersForm {
     ordering_column: [ "" ],
     ordering_direction: [ "" ],
     limit: [ 25 ],
+    limit_start: [ 0 ],
   };
 
   public fg: FormGroup;
@@ -64,6 +65,7 @@ export class TrisFiltersForm {
   get ordering_column(): FormControl { return this.fg.get('ordering_column') as FormControl; };
   get ordering_direction(): FormControl { return this.fg.get('ordering_direction') as FormControl; };
   get limit(): FormControl { return this.fg.get('limit') as FormControl; };
+  get limit_start(): FormControl { return this.fg.get('limit_start') as FormControl; };
 
 
   // dateToYMD = (date: Date) => {

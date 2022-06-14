@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from 'src/app/app.reducer';
+import { TrisFiltersComponent } from '../tris-filters/tris-filters.component';
 
 import { TrisTableComponent } from './tris-table.component';
 
@@ -8,7 +12,11 @@ describe('TrisTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrisTableComponent ]
+      declarations: [ TrisTableComponent, TrisFiltersComponent ],
+      imports: [
+        ReactiveFormsModule,
+        StoreModule.forRoot(reducers)
+      ]
     })
     .compileComponents();
   });
@@ -22,4 +30,5 @@ describe('TrisTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

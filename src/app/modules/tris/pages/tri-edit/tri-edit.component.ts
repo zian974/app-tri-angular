@@ -26,7 +26,6 @@ export class TriEditComponent implements OnInit, OnDestroy {
   public data: { tri: TriModel, selectedTaxon: Taxon } = {
     tri: new TriModel(),
     selectedTaxon: new Taxon(),
-
   }
 
   public triForm = new TriForm( this.fb );

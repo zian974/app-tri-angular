@@ -30,7 +30,7 @@ export class TriModel {
   graines_trash_nb: number|null = null;
   graines_trash_raison: string|null = null;
 
-  agents!: Agent[];
+  agents: Agent[] = [];
 
   constructor( data?: Partial<TriModel> ) {
 

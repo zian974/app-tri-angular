@@ -7,6 +7,7 @@ import { toUrlParams } from 'src/app/shared/utils/toUrlParams';
 import { environment } from 'src/environments/environment';
 import { TriModel } from '../models/tri.model';
 import { TrisFiltersModel } from '../models/tris-filters.model';
+import { Tris } from '../models/tris.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,10 @@ export class TrisService extends Http {
    *
    * @returns
    */
-  index = ( trisFilters?: TrisFiltersModel  ): Observable<any> => {
+  index = ( trisFilters?: TrisFiltersModel  ): Observable<Tris> => {
     let params =  toUrlParams(trisFilters);
 
-    return this.http.get<any>(environment.apiUrl + '/api/tris?'+ params )
+    return this.http.get<Tris>(environment.apiUrl + '/api/tris?'+ params )
       .pipe(
         catchError( this.handleError() )
       );

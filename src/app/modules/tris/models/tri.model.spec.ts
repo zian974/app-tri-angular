@@ -1,7 +1,9 @@
 import { TriModel } from './tri.model';
 
-describe('Tri', () => {
+describe('TriModel', () => {
+
   it('should create an instance', () => {
     expect(new TriModel()).toBeTruthy();
   });
+
 });

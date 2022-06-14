@@ -3,12 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { toUrlParams } from 'src/app/shared/utils/toUrlParams';
-import { environment } from 'src/environments/environment';
 import { TaxrefFilters, TaxrefHttpResponse } from './taxref.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TaxrefService {
 
   constructor(

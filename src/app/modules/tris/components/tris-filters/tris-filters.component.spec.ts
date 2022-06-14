@@ -1,9 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from 'src/app/app.reducer';
 
 import { TrisFiltersComponent } from './tris-filters.component';
 
 describe('TrisFiltersComponent', () => {
+
   let component: TrisFiltersComponent;
   let fixture: ComponentFixture<TrisFiltersComponent>;
 
@@ -11,6 +14,8 @@ describe('TrisFiltersComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TrisFiltersComponent ],
       imports: [
+        ReactiveFormsModule,
+        StoreModule.forRoot(reducers)
       ]
     })
     .compileComponents();
@@ -25,4 +30,5 @@ describe('TrisFiltersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

@@ -1,14 +1,18 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { populateFilters } from '../../actions/tris.actions';
 import { TrisFiltersModel } from '../../models/tris-filters.model';
 import { TrisModel } from '../../models/tris.model';
 
 
 class Page {
+
   num: number;
   label: string = '';
   aClass: string = '';
   liClass: string = '';
   ariaLabel: string = '';
+
   constructor( data: any = {} ) {
     this.num = data.num !== undefined?data.num:null;
     this.label = data.label || '';
@@ -20,7 +24,22 @@ class Page {
 @Component({
   selector: 'tris-table',
   templateUrl: './tris-table.component.html',
-  styleUrls: ['./tris-table.component.css'],
+  styles: [
+    `:host {
+      display: block;
+    }`,
+
+    `@media (max-width: 575px) {
+      :host .tris-table td.nom_botanique {
+        max-width: 200px; width: 200px;
+      }
+      :host .tris-table td.nom_botanique span {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }`
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrisTableComponent implements OnInit {
@@ -48,7 +67,8 @@ export class TrisTableComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(
+    private store: Store) { }
 
 
   ngOnInit(): void {
@@ -93,6 +113,9 @@ export class TrisTableComponent implements OnInit {
       limit_start: page * this.data.filters.limit
     }
     this.onFiltersChanged(pagination as TrisFiltersModel);
+
+    // On enregistre les filtres dans le store
+    this.store.dispatch( populateFilters({ ...this.data.filters, ...pagination } ) );
   }
 
 
