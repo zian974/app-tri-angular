@@ -2,8 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit, Input, ViewC
 import { FormControl, NgForm } from '@angular/forms';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, finalize, map, switchMap, takeUntil } from 'rxjs/operators';
-import { Agent, AgentModel } from 'src/app/modules/models/agent';
-import { Agents } from 'src/app/modules/models/agents';
+import { AgentModel } from '../../models/agent.model';
+import { Agents } from '../../models/agents.model';
 import { AgentsSelectService } from './agents-select.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() multiple!: Boolean;
 
-  @Input() set selectedAgents( agents: Agent[] ) {
+  @Input() set selectedAgents( agents: AgentModel[] ) {
     this.data.selectedAgents = [...agents];
     this.cdRef.markForCheck();
   }
@@ -32,8 +32,8 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   public data = {
-    agents: [] as Agent[],
-    selectedAgents: [] as Agent[],
+    agents: [] as AgentModel[],
+    selectedAgents: [] as AgentModel[],
     states: {
       listVisible: false
     },
@@ -96,12 +96,12 @@ export class AgentsSelectComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-  trackBy = ( index: number, agent: Agent ): number => {
+  trackBy = ( index: number, agent: AgentModel ): number => {
     return agent.id as number;
   }
 
 
-  onClick = ( agent: Agent ) => {
+  onClick = ( agent: AgentModel ) => {
     if ( !(this.formInput.value as number[]).includes(agent.id as number) ) {
       this.formInput.value.push( agent.id );
       this.data.selectedAgents.push(agent);

@@ -6,7 +6,7 @@ import { TrisFiltersModel } from "../models/tris-filters.model";
 export class TrisFiltersForm {
 
   /**
-   * @property fgObject aka formGroupObject. Objet contenant la définition de tous les contrôles du formulaire
+   * @property fgObject Définition des contrôles du formulaire
    * @private
    */
   private fgObject: { [key: string]: any; } = {

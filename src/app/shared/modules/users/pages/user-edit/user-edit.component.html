@@ -1,0 +1,112 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb text-upper-small">
+    <li class="breadcrumb-item"><a [routerLink]="['/users']">Users</a></li>
+    <li class="breadcrumb-item active" aria-current="page">User</li>
+  </ol>
+</nav>
+
+<div class="header">
+  <div class="header-body">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="header-title text-truncate">
+          <ng-container *ngIf="userForm.id?.value; else newUser">
+            Fiche
+          </ng-container>
+          <ng-template #newUser> Nouveau </ng-template>
+        </h1>
+      </div>
+      <div class="col-auto">
+        <button type="button" label="Delete" class="btn btn-danger ms-2 d-flex" (click)="deleteItem()"
+                [disabled]="!data.user.id">
+          <span class="material-symbols-outlined">
+            delete_forever
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form name="stagiaireForm" [formGroup]="userForm.fg" (ngSubmit)="submitItem()">
+
+      <p class="text-required"><small class="text-muted">Les champs suivis d'un <span class="text-danger">*</span> sont obligatoires.</small></p>
+      <div class="row col-lg-6">
+
+
+          <!-- Nom-->
+          <div class="form-group col-md-6 mb-3">
+            <label for="nom" class="form-label required">Nom</label>
+            <input type="text" class="form-control" id="nom"
+                  formControlName="nom" required>
+
+            <div  *ngIf="(userForm.nom?.invalid && (userForm.nom?.dirty || userForm.nom?.touched))"
+                  class="invalid-feedback d-block">
+              <div *ngIf="userForm.nom?.errors?.['required']">
+                Veuillez saisir un nom
+              </div>
+            </div>
+          </div>
+
+          <!-- Prénom -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="prenom" class="form-label required">Prénom</label>
+            <input type="text" class="form-control" id="prenom"
+                  formControlName="prenom" required>
+
+            <div  *ngIf="(userForm.prenom?.invalid && (userForm.prenom?.dirty || userForm.prenom?.touched))"
+                  class="invalid-feedback d-block">
+              <div *ngIf="userForm.prenom?.errors?.['required']">
+                Veuillez saisir un prénom
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="row col-md-6 flex-column " >
+
+        <!-- Email -->
+        <div class="col form-group mb-3">
+          <label for="email" class="form-label required">Email</label>
+          <input type="email" class="form-control" id="email" name="email"
+                 formControlName="email" required>
+
+          <div  *ngIf="(userForm.email?.invalid && (userForm.email?.dirty || userForm.email?.touched))"
+                 class="invalid-feedback d-block">
+            <div *ngIf="userForm.email?.errors?.required">
+              Veuillez saisir un email
+            </div>
+            <div *ngIf="userForm.email?.errors?.email">
+              L'email est invalide
+            </div>
+          </div>
+        </div>
+
+        <!-- Abréviation -->
+        <div class="col-lg-6 form-group mb-3">
+          <label for="abbr" class="form-label required">Abréviation</label>
+          <input type="text" class="form-control" id="abbr" name="abbr"
+                 formControlName="abbr" required>
+
+          <div  *ngIf="(userForm.abbr?.invalid && (userForm.abbr?.dirty || userForm.abbr?.touched))"
+                 class="invalid-feedback d-block">
+            <div *ngIf="userForm.abbr?.errors?.required">
+              Veuillez saisir une abréviation
+            </div>
+            <div *ngIf="userForm.abbr?.errors?.pattern">
+              L'abréviation est invalide
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+    </form>
+  </div>
+</div>
+<app-spinner></app-spinner>

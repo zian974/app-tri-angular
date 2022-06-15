@@ -1,25 +1,16 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Page } from 'src/app/shared/models/page.model';
 import { populateFilters } from '../../actions/tris.actions';
 import { TrisFiltersModel } from '../../models/tris-filters.model';
 import { TrisModel } from '../../models/tris.model';
 
 
-class Page {
-
-  num: number;
-  label: string = '';
-  aClass: string = '';
-  liClass: string = '';
-  ariaLabel: string = '';
-
-  constructor( data: any = {} ) {
-    this.num = data.num !== undefined?data.num:null;
-    this.label = data.label || '';
-    this.liClass = data.cssClass || '';
-  }
+interface ComponentData {
+  tris: TrisModel,
+  filters: TrisFiltersModel,
+  pagination: Page[]
 }
-
 
 @Component({
   selector: 'tris-table',
@@ -49,18 +40,10 @@ export class TrisTableComponent implements OnInit {
     this.makePagination();
   }
 
-
-  // @Input() set filters( filters: TrisFiltersModel ) {
-  //   if( filters === null ) return;
-  //   this.data.filters = new TrisFiltersModel(filters);
-  //   this.makePagination();
-  //   this.filtersChanged.emit(filters);
-  // }
-
   @Output() filtersChanged = new EventEmitter();
 
-
-  data: { tris: TrisModel, filters: TrisFiltersModel, pagination: Page[] } = {
+  /** Données publiques du composant */
+  data: ComponentData = {
     filters: new TrisFiltersModel,
     tris: new TrisModel,
     pagination: []

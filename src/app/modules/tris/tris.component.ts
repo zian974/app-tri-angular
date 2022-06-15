@@ -11,6 +11,7 @@ import { TrisService } from './services/tris.service';
  * Data du composant
  */
 interface ComponentData {
+
   /** Données des tris */
   tris: TrisModel;
 
@@ -32,16 +33,16 @@ export class TrisComponent implements OnInit, OnDestroy {
    */
   @ViewChild(SpinnerComponent) spinner!: SpinnerComponent
 
-  /**
-   * Observable à lancer à la destruction du composant pour se désinscrire des éventuelles subscriptions effectuées.
-   */
-  private onComponentDestroy$ = new Subject;
-
   /** Données publiques du composant */
   public data: ComponentData = {
     tris: new TrisModel,
     filters: new TrisFiltersModel
   }
+
+  /**
+   * Subject utilisé pour se désinscrire d'éventuelles subscriptions
+   */
+  private onComponentDestroy$ = new Subject;
 
 
   constructor(

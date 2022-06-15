@@ -1,6 +1,8 @@
-.navbar-vertical.navbar-expand-md.fixed-start {
+.navbar-vertical.navbar-expand-md.fixed-start,
+.navbar-vertical.navbar-expand-lg.fixed-start {
   border-width: 0 1px 0 0;
   left: 0;
+  background-color: white
 }
 .navbar-brand {
   font-weight: 500;
@@ -14,14 +16,51 @@
   outline: 0;
   box-shadow: 0 0 0 1px;
 }
+hr:not([size]) {
+  height: 1px;
+}
+.navbar-light .navbar-divider {
+  border-color: #e3ebf6;
+  opacity: 1;
+}
+
+.navbar-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-vertical.navbar-expand-md .navbar-collapse > *,
+.navbar-vertical.navbar-expand-lg .navbar-collapse > * {
+  min-width: 100%;
+}
+
+.navbar-vertical .navbar-heading {
+  font-size: .625rem;
+  letter-spacing: .04em;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  text-transform: uppercase;
+}
+
+.navbar-nav {
+  /* align-items: center; */
+  flex-direction: column;
+}
+.navbar-light .navbar-heading {
+  color: #95aac9;
+}
 
 .main-content {
-  background-color: #fff;
   border-color: #e3ebf6;
   border-style: solid;
   border-width: 1px 0 0 ;
 }
 
+.navbar-vertical.navbar-expand-md .navbar-collapse,
+.navbar-vertical.navbar-expand-lg .navbar-collapse {
+  margin: 1.5rem auto;
+}
 
 @media (min-width: 992px) {
   .navbar-vertical.navbar-expand-md,
@@ -71,21 +110,6 @@
     margin-left: 250px;
     padding-top: 1.5rem;
   }
-
-  /*
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-fluid,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-lg,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-md,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-sm,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-xl,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-fluid,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-lg,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-md,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-sm,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-xl,
-  */
 
   .main-content > .container-fluid {
     padding-left: 2.25rem!important;

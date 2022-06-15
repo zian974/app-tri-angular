@@ -1,6 +1,6 @@
 import { formatDate } from "@angular/common";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Agent } from "../../models/agent";
+import { Agent } from "../../agents/models/agent.model";
 import { TriModel } from "../models/tri.model";
 
 export class TriForm {

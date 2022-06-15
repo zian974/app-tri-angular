@@ -1,0 +1,29 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb text-upper-small">
+    <li class="breadcrumb-item">Agents</li>
+  </ol>
+</nav>
+
+<div class="header">
+  <div class="header-body">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="header-title text-truncate">
+          Liste
+        </h1>
+      </div>
+      <div class="col-auto">
+        <button type="button" label="Add" class="btn btn-primary ms-2 d-flex" [routerLink]="['/agents/agent-edit']">
+          <span class="material-symbols-outlined">
+            add
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<agents-table [agents]="data.agents"
+              (filtersChanged)="onFiltersChanged($event)"></agents-table>
+
+<app-spinner></app-spinner>

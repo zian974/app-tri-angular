@@ -22,8 +22,6 @@ import { TrisFiltersModel } from '../../models/tris-filters.model';
 })
 export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
-
-
   /**
    * EventEmitter lancé à la soumission du formulaire
    *
@@ -31,8 +29,7 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   @Output() filtersChanged = new EventEmitter();
 
-
-  public data: {
+  data: {
     states: {
       filtersVisible: boolean,
       countFilters: number
@@ -44,10 +41,12 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   };
 
-  public filtersForm: TrisFiltersForm;
+  filtersForm: TrisFiltersForm;
+
   public unlistenDocumentClick$!: Function;
 
   private onComponentDestroy$ = new Subject();
+
 
   constructor(
     private cdRef: ChangeDetectorRef,
@@ -132,7 +131,7 @@ export class TrisFiltersComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   /**
-   * Envoi du formualire de recherche
+   * Envoi du formulaire de recherche
    *
    * @fires module:TrisFiltersComponent~filtersChanged
    */

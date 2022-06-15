@@ -3,6 +3,8 @@
  */
 export class TrisFiltersModel {
 
+  id?: number;
+
   /** Nom botanique recherché */
   nom_botanique: string = '';
 

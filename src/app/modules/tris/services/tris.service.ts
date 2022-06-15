@@ -55,12 +55,4 @@ export class TrisService extends Http {
         })
       );
   }
-
-
-  handleError = () => {
-
-    return ( error: HttpErrorResponse): Observable<any> => {
-      return throwError( error );
-    }
-  }
 }

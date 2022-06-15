@@ -56,31 +56,12 @@
 
     <nav aria-label="tris pagination" class="pe-4 d-flex justify-content-end">
       <ul class="pagination pagination-sm">
-
-        <!-- <li class="page-item">
-          <a  class="page-link"
-              [routerLink]="" aria-label="Previous"
-              (click)="onPaginate(0)">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li> -->
-
         <li class="page-item" [ngClass]="page.liClass" *ngFor="let page of data.pagination">
           <a class="page-link" [routerLink]="" [ngClass]="page.aClass"
              (click)="onPaginate(page.num)">
             <span aria-hidden="true" [innerHtml]="page.label"></span>
           </a>
         </li>
-
-        <!-- <li class="page-item">
-          <a  class="page-link"
-              [ngClass]="data.tris.metadata.totalItems - ((data.filters.limit_start)*data.filters.limit) > 0?'':'disabled'"
-              [routerLink]="" aria-label="Next"
-              (click)="onPaginate(data.tris.metadata.totalItems/data.filters.limit)">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li> -->
-
       </ul>
     </nav>
 </div>

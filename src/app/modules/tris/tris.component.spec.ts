@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from 'src/app/app.reducer';
 import { TriModel } from './models/tri.model';
-import { Tris, TrisModelMetadata } from './models/tris.model';
 import { TrisModule } from './tris.module';
 import { TrisService } from './services/tris.service';
 
@@ -14,6 +13,8 @@ import { TrisTableComponent } from './components/tris-table/tris-table.component
 import { TrisFiltersComponent } from './components/tris-filters/tris-filters.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable, of } from 'rxjs';
+import { ListMetadata } from 'src/app/shared/models/list-metadata.model';
+import { Tris } from './models/tris.model';
 
 describe('TrisComponent', () => {
 
@@ -21,7 +22,6 @@ describe('TrisComponent', () => {
   let fixture: ComponentFixture<TrisComponent>;
 
   const trisServiceStub = {
-    // The default contact object
     tris: {
       items: [
         new TriModel(),
@@ -37,20 +37,25 @@ describe('TrisComponent', () => {
           graines_nb : 7,
         }),
       ],
-      metadata: new TrisModelMetadata
+      metadata: new ListMetadata
     },
     index: function (): Observable<Tris> {
-      component.data.tris = this.tris;
+      // component.data.tris = this.tris;
       return of(this.tris);
     },
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrisComponent, TrisTableComponent, TrisFiltersComponent ],
+      declarations: [
+        TrisComponent, TrisTableComponent, TrisFiltersComponent
+      ],
       imports: [
-        HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule, SpinnerModule,
-        StoreModule.forRoot(reducers)],
+        HttpClientTestingModule, RouterTestingModule,
+        FormsModule, ReactiveFormsModule,
+        StoreModule.forRoot(reducers),
+        SpinnerModule,
+      ],
       providers: [FormBuilder, {provide: TrisService, useValue: trisServiceStub}]
     })
     .compileComponents();
@@ -69,6 +74,7 @@ describe('TrisComponent', () => {
   it('should create an instance', () => {
     expect(component).toBeTruthy();
   });
+
 
   describe( "index() test", () => {
 

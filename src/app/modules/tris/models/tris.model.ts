@@ -1,34 +1,19 @@
+import { ListMetadata } from "src/app/shared/models/list-metadata.model";
 import { TriModel } from "./tri.model";
 
-/**
- * Metadata de la liste des tris
- */
-export class TrisModelMetadata {
-
-  "@id": string = '';
-
-  "@type": string = '';
-
-  /** Nombre d'items total de la liste */
-  "totalItems": number = 0;
-}
-
-
 export interface Tris {
-  /** Liste des tris */
+  /** Liste des fiche de tris */
   items: TriModel[];
 
-  /** Métadata associé à la liste (nb. totalItems) */
-  metadata: TrisModelMetadata;
+  metadata: ListMetadata;
 }
 
 export class TrisModel implements Tris {
 
-  /** Liste des tris */
+  /** Liste des fiche de tris */
   items: TriModel[] = [];
 
-  /** Métadata associé à la liste (nb. totalItems) */
-  metadata = new TrisModelMetadata;
+  metadata = new ListMetadata;
 
   /**
    * @constructor
