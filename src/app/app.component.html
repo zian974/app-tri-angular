@@ -1,19 +1,26 @@
-<header class="navbar navbar-light sticky-top bg-light flex-md-nowrap">
+<header class="navbar navbar-vertical fixed-start navbar-expand-lg navbar-light">
   <div class="container-fluid">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"> {{title}} </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-    <a class="navbar-brand" href="#">
-     {{title}}
-    </a>
-
-    <nav class="navbar-nav"></nav>
-
+      <nav class="navbar-nav navbar-collapse">
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['tris']">
+            <span class="material-symbols-outlined"> table </span> Tris
+          </a>
+        </li>
+      </nav>
+    </div>
   </div>
 </header>
 
 <div class="main-content">
-
-  <div class="container">
+  <div class="container-fluid">
     <router-outlet></router-outlet>
   </div>
-
 </div>
