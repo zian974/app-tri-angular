@@ -115,11 +115,11 @@ label.required::after {
   opacity: 1;
 }
 
-input:invalid+span:after {
+/* input:invalid+span:after {
   position: absolute;
   content: '✖';
   padding-left: 5px;
-}
+} */
 
 
 .btn-outline-danger {
@@ -131,25 +131,6 @@ input:invalid+span:after {
   color: var(--bs-btn-color);
 }
 
-@media (min-width: 768px) {
-  /* .navbar-vertical-sm:not([style*="display: none"])~.main-content .container,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-fluid,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-lg,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-md,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-sm,
-  .navbar-vertical-sm:not([style*="display: none"])~.main-content .container-xl,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-fluid,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-lg,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-md,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-sm,
-  .navbar-vertical:not([style*="display: none"])~.main-content .container-xl, */
-  .main-content > .container-fluid
-  {
-    padding-left: 2.25rem!important;
-    padding-right: 2.25rem!important;
-  }
-}
 
 /** BREADCRUMB */
 .breadcrumb {
@@ -181,7 +162,6 @@ input:invalid+span:after {
 }
 
 
-
 .header {
   /* margin-bottom: 2rem; */
 }
@@ -199,6 +179,9 @@ input:invalid+span:after {
   margin-bottom: 0;
   font-size: 1.625rem;
 }
+
+
+
 
 
 .card {
@@ -285,4 +268,15 @@ table thead th:first-child {
   font-size: .625rem;
 }
 
+.table [data-sort] {
+  cursor: pointer;
+}
+.table [data-sort]::after {
+	content: url("data:image/svg+xml;utf8,<svg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M3 0L6 4H0L3 0ZM3 10L0 6H6L3 10Z' fill='%2395AAC9'/></svg>");
+	margin-left: .25rem;
+}
 
+
+.pagination a {
+  cursor: pointer;
+}

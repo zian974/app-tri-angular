@@ -1,6 +1,14 @@
 <form #agentsForm="ngForm">
-  <input type="text" class="form-control mb-2" id="abbr" name="abbr"
+  <div class="input-group mb-2">
+    <input type="text" class="form-control" id="abbr" name="abbr"
         [(ngModel)]="data.filters.abbr">
+    <span class="input-group-text spinner">
+      <div class="spinner-border spinner-border-sm fader text-primary d-inline-block" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </span>
+  </div>
+
 
   <div  class="card agentsFilterContainer" *ngIf="data.states.listVisible"
         >

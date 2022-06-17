@@ -1,23 +1,20 @@
 import { formatDate } from "@angular/common";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Tri } from "../models/tri";
-
-
-export interface TrisFilters {
-  nom_botanique: string|null;
-}
-
+import { TriModel } from "../models/tri.model";
+import { TrisFiltersModel } from "../models/tris-filters.model";
 
 export class TrisFiltersForm {
 
   /**
-   * @property fgObject aka formGroupObject. Objet contenant la définition de tous les contrôles du formulaire
+   * @property fgObject Définition des contrôles du formulaire
    * @private
    */
   private fgObject: { [key: string]: any; } = {
-
-    nom_botanique: [ "" ],
-
+    nom_botanique: [""],
+    ordering_column: [ "" ],
+    ordering_direction: [ "" ],
+    limit: [ 25 ],
+    limit_start: [ 0 ],
   };
 
   public fg: FormGroup;
@@ -35,7 +32,7 @@ export class TrisFiltersForm {
    *
    * @param value FormGroupOBject
    */
-  public patchValue( values:Tri ): void {
+  public patchValue( values: TrisFiltersModel ): void {
 
     for ( let [key, value] of Object.entries( values ) ) {
       if ( this.fg.get(key) ) {
@@ -47,7 +44,7 @@ export class TrisFiltersForm {
   }
 
 
-  public updateValidators = ( tri: Tri|null ): void => {
+  public updateValidators = ( tri: TriModel|null ): void => {
 
     if ( tri === null ) {
       return;
@@ -65,6 +62,10 @@ export class TrisFiltersForm {
    *
    */
   get nom_botanique(): FormControl { return this.fg.get('nom_botanique') as FormControl; };
+  get ordering_column(): FormControl { return this.fg.get('ordering_column') as FormControl; };
+  get ordering_direction(): FormControl { return this.fg.get('ordering_direction') as FormControl; };
+  get limit(): FormControl { return this.fg.get('limit') as FormControl; };
+  get limit_start(): FormControl { return this.fg.get('limit_start') as FormControl; };
 
 
   // dateToYMD = (date: Date) => {

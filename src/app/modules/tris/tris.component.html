@@ -9,8 +9,15 @@
     <div class="row align-items-center">
       <div class="col">
         <h1 class="header-title text-truncate">
-          Tris
+          Liste
         </h1>
+      </div>
+      <div class="col-auto">
+        <button type="button" label="Add" class="btn btn-primary ms-2 d-flex" [routerLink]="['/tris/tri-edit']">
+          <span class="material-symbols-outlined">
+            add
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -18,3 +25,6 @@
 
 <tris-table [tris]="data.tris"
             (filtersChanged)="onFiltersChanged($event)"></tris-table>
+
+<app-spinner></app-spinner>
+

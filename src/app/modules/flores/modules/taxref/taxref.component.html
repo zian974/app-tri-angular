@@ -7,15 +7,23 @@
 </div>
 
 <div [hidden]="data.selectedTaxon.scientificName">
-  <form #agentsForm="ngForm">
+  <form #agentsForm="ngForm" style="position: relative;">
     <input type="hidden" id="size" name="size"
           [(ngModel)]="data.filters.size">
-    <input type="text" class="form-control mb-2" id="term" name="term"
+
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" id="term" name="term"
           required
           [(ngModel)]="data.filters.term">
+      <span class="input-group-text spinner">
+        <div class="spinner-border spinner-border-sm fader text-primary d-inline-block" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </span>
+    </div>
 
     <div class="card TaxaFilterContainer" *ngIf="data.states.listVisible"
-        style="position: absolute; inset: 0px 1rem auto 1rem; transform: translate(0px, 64px);">
+        style="position: absolute; inset: 0px 0 auto 0; transform: translate(0px, 42px); z-index: 99;">
       <div class="list-group my-n3">
         <div class="list-group-item" *ngFor="let taxon of data.Taxa; trackBy: trackBy"
               (click)="onClick(taxon)">

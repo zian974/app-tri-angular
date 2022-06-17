@@ -1,0 +1,1117 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app-base documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">app-base documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  TrisTableComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/tris/components/tris-table/tris-table.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tris-table</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./tris-table.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tris-table.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data" >data</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#makePagination" >makePagination</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFiltersChanged" >onFiltersChanged</a>
+                            </li>
+                            <li>
+                                <a href="#onPaginate" >onPaginate</a>
+                            </li>
+                            <li>
+                                <a href="#onSort" >onSort</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filters" >filters</a>
+                            </li>
+                            <li>
+                                <a href="#tris" >tris</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filtersChanged" >filtersChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#tris" >tris</a>
+                                </li>
+                                <li>
+                                    <a href="#filters" >filters</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filters"></a>
+                        <b>filters</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Tris.html" target="_self" >TrisFilters | null</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tris"></a>
+                        <b>tris</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Tris.html" target="_self" >TrisModel</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filtersChanged"></a>
+                        <b>filtersChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="makePagination"></a>
+                    <span class="name">
+                        <span ><b>makePagination</b></span>
+                        <a href="#makePagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>makePagination()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFiltersChanged"></a>
+                    <span class="name">
+                        <span ><b>onFiltersChanged</b></span>
+                        <a href="#onFiltersChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFiltersChanged(filters: <a href="../interfaces/Tris.html" target="_self">TrisFilters</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>filters</td>
+                                    <td>
+                                                <code><a href="../interfaces/Tris.html" target="_self" >TrisFilters</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPaginate"></a>
+                    <span class="name">
+                        <span ><b>onPaginate</b></span>
+                        <a href="#onPaginate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onPaginate(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSort"></a>
+                    <span class="name">
+                        <span ><b>onSort</b></span>
+                        <a href="#onSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSort(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>field</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    filters: new TrisFilters,
+    tris: new TrisModel,
+    pagination: []
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tris"></a>
+                        <span class="name"><b>tris</b><a href="#tris"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>tris(tris: <a href="../interfaces/Tris.html" target="_self">TrisModel</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:28</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>tris</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../interfaces/Tris.html" target="_self" >TrisModel</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filters"></a>
+                        <span class="name"><b>filters</b><a href="#filters"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>filters(filters: <a href="../interfaces/Tris.html" target="_self">TrisFilters | null</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/modules/tris/components/tris-table/tris-table.component.ts:34</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>filters</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../interfaces/Tris.html" target="_self" >TrisFilters | null</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { TrisFilters } from &#x27;../../forms/trisFiltersForm&#x27;;
+import { TrisModel } from &#x27;../../models/tris.model&#x27;;
+
+
+class Page {
+  num: number;
+  label: string &#x3D; &#x27;&#x27;;
+  aClass: string &#x3D; &#x27;&#x27;;
+  liClass: string &#x3D; &#x27;&#x27;;
+  ariaLabel: string &#x3D; &#x27;&#x27;;
+  constructor( data: any &#x3D; {} ) {
+    this.num &#x3D; data.num !&#x3D;&#x3D; undefined?data.num:null;
+    this.label &#x3D; data.label || &#x27;&#x27;;
+    this.liClass &#x3D; data.cssClass || &#x27;&#x27;;
+  }
+}
+
+
+@Component({
+  selector: &#x27;tris-table&#x27;,
+  templateUrl: &#x27;./tris-table.component.html&#x27;,
+  styleUrls: [&#x27;./tris-table.component.css&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class TrisTableComponent implements OnInit {
+
+  @Input() set tris( tris: TrisModel ) {
+    this.data.tris &#x3D; new TrisModel(tris);
+    this.makePagination();
+  }
+
+
+  @Input() set filters( filters: TrisFilters|null ) {
+    if( filters &#x3D;&#x3D;&#x3D; null ) return;
+    this.data.filters &#x3D; new TrisFilters(filters);
+    this.makePagination();
+    this.filtersChanged.emit(filters);
+  }
+
+  @Output() filtersChanged &#x3D; new EventEmitter();
+
+
+  data: { tris: TrisModel, filters: TrisFilters, pagination: Page[] } &#x3D; {
+    filters: new TrisFilters,
+    tris: new TrisModel,
+    pagination: []
+  }
+
+
+  constructor() { }
+
+
+  ngOnInit(): void {
+  }
+
+
+  onFiltersChanged( filters: TrisFilters ): void {
+    this.data.filters &#x3D; { ...this.data.filters, ...filters };
+    this.filtersChanged.emit(filters);
+  }
+
+
+  onSort( field: string ) {
+    let filters &#x3D; { ordering_column: field, ordering_direction: &#x27;&#x27; };
+    if ( this.data.filters.ordering_column &#x3D;&#x3D;&#x3D; field ) {
+      switch( this.data.filters.ordering_direction ) {
+        case &quot;ASC&quot;:
+          filters.ordering_direction &#x3D; &quot;DESC&quot;;
+          break;
+
+        case &quot;DESC&quot;:
+          filters.ordering_direction &#x3D; &quot;&quot;;
+          filters.ordering_column &#x3D; &quot;&quot;;
+          break;
+
+        default:
+          filters.ordering_direction &#x3D; &quot;ASC&quot;;
+          break;
+      }
+    }
+    else {
+      filters.ordering_direction &#x3D; &#x27;ASC&#x27;;
+    }
+
+    this.onFiltersChanged( filters as TrisFilters );
+  }
+
+
+  onPaginate( page: number ) {
+    let pagination &#x3D; {
+      limit: this.data.filters.limit,
+      limit_start: page * this.data.filters.limit
+    }
+    this.onFiltersChanged(pagination as TrisFilters);
+  }
+
+
+  makePagination() {
+
+    this.data.pagination &#x3D; [];
+
+    let nbPage: number &#x3D; Math.ceil(this.data.tris.metadata.totalItems / this.data.filters.limit);
+
+    for ( let i &#x3D; 0; i &lt; nbPage; i++) {
+      let page &#x3D; new Page({ num: i });
+      page.label &#x3D; i + 1 + &quot;&quot;;
+
+      if ( page.num &#x3D;&#x3D; Math.floor( this.data.filters.limit_start / this.data.filters.limit ) ) {
+        page.liClass +&#x3D; &quot; active&quot;;
+      }
+      this.data.pagination.push( page );
+    }
+
+    let prev &#x3D; new Page({
+      label: &#x27;\x26laquo;&#x27;,
+    });
+    prev.aClass &#x3D; Math.floor( this.data.filters.limit_start / this.data.filters.limit ) &#x3D;&#x3D; 0?&#x27;disabled&#x27;:&#x27;&#x27;;
+    prev.ariaLabel &#x3D; &#x27;Précédent&#x27;;
+    this.data.pagination.unshift(prev);
+
+    let next &#x3D; new Page({
+      num: Math.floor(this.data.tris.metadata.totalItems/this.data.filters.limit),
+      label: &#x27;\x26raquo;&#x27;,
+    });
+    next.aClass &#x3D; this.data.tris.metadata.totalItems - ((this.data.filters.limit_start)*this.data.filters.limit) &gt; 0?&#x27;&#x27;:&#x27;disabled&#x27;;
+    next.ariaLabel &#x3D; &#x27;Suivant&#x27;;
+    this.data.pagination.push(next);
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;trisList&quot; class&#x3D;&quot;card&quot;&gt;
+
+  &lt;tris-filters [filters]&#x3D;&quot;data.filters&quot; (filtersChanged)&#x3D;&quot;onFiltersChanged($event)&quot;&gt;&lt;/tris-filters&gt;
+
+  &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+    &lt;table class&#x3D;&quot;mb-2 table table-sm table-hover table-nowrap card-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;form-check mb-n2&quot;&gt;
+              &lt;input class&#x3D;&quot;form-check-input list-checkbox-all&quot; id&#x3D;&quot;listCheckboxAll&quot; type&#x3D;&quot;checkbox&quot;&gt;
+              &lt;label class&#x3D;&quot;form-check-label&quot; for&#x3D;&quot;listCheckboxAll&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt; --&gt;
+          &lt;/th&gt;
+          &lt;th&gt;
+            &lt;a class&#x3D;&quot;list-sort text-muted&quot; data-sort [routerLink]&#x3D;&quot;&quot; (click)&#x3D;&quot;onSort(&#x27;nom_botanique&#x27;)&quot;&gt;
+              Nom botanique
+            &lt;/a&gt;
+          &lt;/th&gt;
+          &lt;th&gt;
+            &lt;a class&#x3D;&quot;list-sort text-muted&quot; data-sort [routerLink]&#x3D;&quot;&quot; (click)&#x3D;&quot;onSort(&#x27;tri_date&#x27;)&quot;&gt;
+              Date de tri
+            &lt;/a&gt;
+          &lt;/th&gt;
+          &lt;th&gt;
+            &lt;span class&#x3D;&quot;list-sort text-muted&quot;&gt;
+              Nombre
+            &lt;/span&gt;
+          &lt;/th&gt;
+          &lt;th&gt;
+            &lt;span class&#x3D;&quot;list-sort text-muted&quot;&gt;
+              Poids
+            &lt;/span&gt;
+          &lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr *ngFor&#x3D;&quot;let item of data.tris.items&quot;&gt;
+          &lt;td&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;form-check&quot;&gt;
+              &lt;input class&#x3D;&quot;form-check-input list-checkbox&quot; id&#x3D;&quot;listCheckboxOne&quot; type&#x3D;&quot;checkbox&quot;&gt;
+              &lt;label class&#x3D;&quot;form-check-label&quot; for&#x3D;&quot;listCheckboxOne&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt; --&gt;
+          &lt;/td&gt;
+          &lt;td&gt;
+            &lt;a [routerLink]&#x3D;&quot;[&#x27;/tris/tri-edit&#x27;,{id: item.id}]&quot; class&#x3D;&quot;item-name text-reset&quot;&gt;
+              &lt;span&gt;{{item.nom_botanique}}&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/td&gt;
+          &lt;td&gt;&lt;span&gt;{{item.tri_date | date:&#x27;dd/MM/yyyy&#x27;}}&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;span&gt;{{item.graines_nb}}&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;span&gt;{{item.graines_pds}}&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;nav aria-label&#x3D;&quot;tris pagination&quot; class&#x3D;&quot;pe-4 d-flex justify-content-end&quot;&gt;
+      &lt;ul class&#x3D;&quot;pagination pagination-sm&quot;&gt;
+
+        &lt;!-- &lt;li class&#x3D;&quot;page-item&quot;&gt;
+          &lt;a  class&#x3D;&quot;page-link&quot;
+              [routerLink]&#x3D;&quot;&quot; aria-label&#x3D;&quot;Previous&quot;
+              (click)&#x3D;&quot;onPaginate(0)&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;laquo;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt; --&gt;
+
+        &lt;li class&#x3D;&quot;page-item&quot; [ngClass]&#x3D;&quot;page.liClass&quot; *ngFor&#x3D;&quot;let page of data.pagination&quot;&gt;
+          &lt;a class&#x3D;&quot;page-link&quot; [routerLink]&#x3D;&quot;&quot; [ngClass]&#x3D;&quot;page.aClass&quot;
+             (click)&#x3D;&quot;onPaginate(page.num)&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot; [innerHtml]&#x3D;&quot;page.label&quot;&gt;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;!-- &lt;li class&#x3D;&quot;page-item&quot;&gt;
+          &lt;a  class&#x3D;&quot;page-link&quot;
+              [ngClass]&#x3D;&quot;data.tris.metadata.totalItems - ((data.filters.limit_start)*data.filters.limit) &gt; 0?&#x27;&#x27;:&#x27;disabled&#x27;&quot;
+              [routerLink]&#x3D;&quot;&quot; aria-label&#x3D;&quot;Next&quot;
+              (click)&#x3D;&quot;onPaginate(data.tris.metadata.totalItems/data.filters.limit)&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;raquo;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt; --&gt;
+
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./tris-table.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="trisList" class="card">  <tris-filters [filters]="data.filters" (filtersChanged)="onFiltersChanged($event)"></tris-filters>  <div class="table-responsive">    <table class="mb-2 table table-sm table-hover table-nowrap card-table">      <thead>        <tr>          <th>            <!-- <div class="form-check mb-n2">              <input class="form-check-input list-checkbox-all" id="listCheckboxAll" type="checkbox">              <label class="form-check-label" for="listCheckboxAll"></label>            </div> -->          </th>          <th>            <a class="list-sort text-muted" data-sort [routerLink]="" (click)="onSort(\'nom_botanique\')">              Nom botanique            </a>          </th>          <th>            <a class="list-sort text-muted" data-sort [routerLink]="" (click)="onSort(\'tri_date\')">              Date de tri            </a>          </th>          <th>            <span class="list-sort text-muted">              Nombre            </span>          </th>          <th>            <span class="list-sort text-muted">              Poids            </span>          </th>        </tr>      </thead>      <tbody>        <tr *ngFor="let item of data.tris.items">          <td>            <!-- <div class="form-check">              <input class="form-check-input list-checkbox" id="listCheckboxOne" type="checkbox">              <label class="form-check-label" for="listCheckboxOne"></label>            </div> -->          </td>          <td>            <a [routerLink]="[\'/tris/tri-edit\',{id: item.id}]" class="item-name text-reset">              <span>{{item.nom_botanique}}</span>            </a>          </td>          <td><span>{{item.tri_date | date:\'dd/MM/yyyy\'}}</span></td>          <td><span>{{item.graines_nb}}</span></td>          <td><span>{{item.graines_pds}}</span></td>        </tr>      </tbody>    </table>    <nav aria-label="tris pagination" class="pe-4 d-flex justify-content-end">      <ul class="pagination pagination-sm">        <!-- <li class="page-item">          <a  class="page-link"              [routerLink]="" aria-label="Previous"              (click)="onPaginate(0)">            <span aria-hidden="true">&laquo;</span>          </a>        </li> -->        <li class="page-item" [ngClass]="page.liClass" *ngFor="let page of data.pagination">          <a class="page-link" [routerLink]="" [ngClass]="page.aClass"             (click)="onPaginate(page.num)">            <span aria-hidden="true" [innerHtml]="page.label"></span>          </a>        </li>        <!-- <li class="page-item">          <a  class="page-link"              [ngClass]="data.tris.metadata.totalItems - ((data.filters.limit_start)*data.filters.limit) > 0?\'\':\'disabled\'"              [routerLink]="" aria-label="Next"              (click)="onPaginate(data.tris.metadata.totalItems/data.filters.limit)">            <span aria-hidden="true">&raquo;</span>          </a>        </li> -->      </ul>    </nav></div></div>'
+    var COMPONENTS = [{'name': 'AgentsSelectComponent', 'selector': 'agents-select'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TaxrefComponent', 'selector': 'app-taxref'},{'name': 'TriEditComponent', 'selector': 'tri-edit'},{'name': 'TrisComponent', 'selector': 'app-tris'},{'name': 'TrisFiltersComponent', 'selector': 'tris-filters'},{'name': 'TrisTableComponent', 'selector': 'tris-table'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TrisTableComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TrisTableComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

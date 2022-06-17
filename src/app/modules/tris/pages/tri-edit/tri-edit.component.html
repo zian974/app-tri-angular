@@ -11,9 +11,9 @@
       <div class="col">
         <h1 class="header-title text-truncate">
           <ng-container *ngIf="triForm.id?.value; else newTri">
-            Modification tri
+            Fiche
           </ng-container>
-          <ng-template #newTri> Nouveau tri </ng-template>
+          <ng-template #newTri> Nouveau </ng-template>
         </h1>
       </div>
       <div class="col-auto">
@@ -372,3 +372,4 @@
     </form>
   </div>
 </div>
+<app-spinner></app-spinner>

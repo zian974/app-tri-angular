@@ -1,27 +1,31 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 import { Taxon } from 'src/app/modules/flores/modules/taxref/taxref.model';
+import { SpinnerComponent } from 'src/app/shared/modules/spinner/spinner.component';
 import { TriForm } from '../../forms/triForm';
-import { Tri, TriModel } from '../../models/tri';
+import { TriModel } from '../../models/tri.model';
 import { TrisService } from '../../services/tris.service';
 
 @Component({
   selector: 'tri-edit',
   templateUrl: './tri-edit.component.html',
-  styleUrls: ['./tri-edit.component.css'],
+  styles: [
+    `:host { display: block; position: relative; }`,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TriEditComponent implements OnInit, OnDestroy {
+
+  @ViewChild(SpinnerComponent) spinner!: SpinnerComponent
 
   private onComponentDestroy$ = new Subject();
 
   public data: { tri: TriModel, selectedTaxon: Taxon } = {
     tri: new TriModel(),
     selectedTaxon: new Taxon(),
-
   }
 
   public triForm = new TriForm( this.fb );
@@ -66,7 +70,7 @@ export class TriEditComponent implements OnInit, OnDestroy {
 
   getItem = ( id: number ): void => {
     this.triSvc.get(id).subscribe(
-      ( response: Tri ) => {
+      ( response: TriModel ) => {
         this.data.tri = new TriModel({ ...response });
         this.triForm.patchValue(response);
         this.data.selectedTaxon = new Taxon({
@@ -89,7 +93,6 @@ export class TriEditComponent implements OnInit, OnDestroy {
       let controls: { [key: string]: AbstractControl; } = this.triForm.fg.controls;
       for ( let ctrl in controls ) {
         controls[ctrl].markAsDirty();
-
         if ( controls[ctrl].status !== 'VALID' ) {
           console.log(ctrl, controls[ctrl].errors)
         }
@@ -98,15 +101,22 @@ export class TriEditComponent implements OnInit, OnDestroy {
       return;
     };
 
-    this.triSvc.store( this.triForm.fg.value ).subscribe(
-      (response:any) => {
-        this.triForm.patchValue(response);
-      }
-    );
+    this.spinner.show();
+    this.triSvc.store( this.triForm.fg.value )
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(
+        (response:any) => {
+          this.triForm.patchValue(response);
+        }
+      );
   }
 
 
-  onTaxonSelect( taxon: Taxon ) {
+  onTaxonSelect( taxon: any ) {
     this.triForm.nom_botanique.setValue(taxon.scientificName);
     this.triForm.cd_ref.setValue(taxon.referenceId);
   }

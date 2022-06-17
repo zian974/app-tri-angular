@@ -1,0 +1,59 @@
+<div id="usersList" class="card">
+
+  <users-filters (filtersChanged)="onFiltersChanged($event)"></users-filters>
+
+  <div class="table-responsive">
+    <table class="users-table table table-sm table-hover table-nowrap card-table mb-2">
+      <thead>
+        <tr>
+          <th>
+          </th>
+          <th>
+            <a class="nom list-sort text-muted" data-sort [routerLink]=""  (click)="onSort('nom')">
+              Nom
+            </a>
+          </th>
+          <th class="d-none d-sm-table-cell">
+            <span class="text-muted">
+              Email
+            </span>
+          </th>
+          <th class="d-none d-sm-table-cell">
+            <span class="text-muted">
+              Abréviation
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data.users.items">
+          <td class="td-check" >
+            <!-- <div class="form-check">
+              <input class="form-check-input list-checkbox" id="listCheckboxOne" type="checkbox">
+              <label class="form-check-label" for="listCheckboxOne"></label>
+            </div> -->
+          </td>
+          <td class="nom">
+            <a [routerLink]="['/users/user-edit',{id: item.id}]" class="item-name text-reset">
+              <span>{{item.nom}} {{item.prenom}}</span>
+            </a>
+          </td>
+          <td class="email d-none d-sm-table-cell"><span>{{item.email}}</span></td>
+          <td class="abbr"><span>{{item.abbr}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <nav aria-label="users pagination" class="pe-4 d-flex justify-content-end">
+      <ul class="pagination pagination-sm">
+
+        <li class="page-item" [ngClass]="page.liClass" *ngFor="let page of data.pagination">
+          <a class="page-link" [routerLink]="" [ngClass]="page.aClass"
+             (click)="onPaginate(page.num)">
+            <span aria-hidden="true" [innerHtml]="page.label"></span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+</div>

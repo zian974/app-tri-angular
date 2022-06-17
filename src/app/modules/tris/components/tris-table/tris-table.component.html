@@ -3,7 +3,7 @@
   <tris-filters (filtersChanged)="onFiltersChanged($event)"></tris-filters>
 
   <div class="table-responsive">
-    <table class="table table-sm table-hover table-nowrap card-table">
+    <table class="tris-table table table-sm table-hover table-nowrap card-table mb-2">
       <thead>
         <tr>
           <th>
@@ -13,36 +13,55 @@
             </div> -->
           </th>
           <th>
-            <span class="list-sort text-muted">Nom botanique</span>
+            <a class="nom_botanique list-sort text-muted" data-sort [routerLink]="" (click)="onSort('nom_botanique')">
+              Nom botanique
+            </a>
           </th>
           <th>
-            <span class="list-sort text-muted">Date de tri</span>
+            <a class="list-sort text-muted" data-sort [routerLink]="" (click)="onSort('tri_date')">
+              Date de tri
+            </a>
           </th>
-          <th>
-            <span class="list-sort text-muted">Nombre</span>
+          <th class="d-none d-sm-table-cell">
+            <span class="text-muted">
+              Nombre
+            </span>
           </th>
-          <th>
-            <span class="list-sort text-muted">Poids</span>
+          <th class="d-none d-sm-table-cell">
+            <span class="text-muted">
+              Poids
+            </span>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of data.tris.items">
-          <td>
+          <td class="td-check" >
             <!-- <div class="form-check">
               <input class="form-check-input list-checkbox" id="listCheckboxOne" type="checkbox">
               <label class="form-check-label" for="listCheckboxOne"></label>
             </div> -->
           </td>
-          <td>
+          <td class="nom_botanique">
             <a [routerLink]="['/tris/tri-edit',{id: item.id}]" class="item-name text-reset">
               <span>{{item.nom_botanique}}</span>
             </a>
           </td>
-          <td><span>{{item.tri_date | date:'dd/MM/yyyy'}}</span></td>
-          <td><span>{{item.graines_nb}}</span></td>
-          <td><span>{{item.graines_pds}}</span></td>
+          <td class="tri_date"><span>{{item.tri_date | date:'dd/MM/yyyy'}}</span></td>
+          <td class="graines_nb d-none d-sm-table-cell"><span>{{item.graines_nb}}</span></td>
+          <td class="graines_pds d-none d-sm-table-cell"><span>{{item.graines_pds}}</span></td>
         </tr>
       </tbody>
     </table>
+
+    <nav aria-label="tris pagination" class="pe-4 d-flex justify-content-end">
+      <ul class="pagination pagination-sm">
+        <li class="page-item" [ngClass]="page.liClass" *ngFor="let page of data.pagination">
+          <a class="page-link" [routerLink]="" [ngClass]="page.aClass"
+             (click)="onPaginate(page.num)">
+            <span aria-hidden="true" [innerHtml]="page.label"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 </div>

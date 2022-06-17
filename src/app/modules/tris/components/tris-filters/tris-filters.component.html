@@ -4,6 +4,16 @@
       <div class="row">
         <div class="col"></div>
         <div class="col-auto">
+          <select class="form-select form-select-sm" aria-label="Nombre de lignes" (change)="onSubmit()"
+                  formControlName="limit">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="">illimite</option>
+          </select>
+        </div>
+        <div class="col-auto">
           <button class="btn btn-sm btn-white" type="button" aria-expanded="false" (click)="toggleFilters($event)">
             <span class="material-symbols-outlined">
               filter_list
@@ -13,14 +23,13 @@
       </div>
     </div>
   </div>
-
   <div class="card trisFiltersContainer" *ngIf="data.states.filtersVisible"
        style="position: absolute; inset: 0px 1rem auto 1rem; transform: translate(0px, 64px);">
 
     <div class="card-header">
       <h4 class="card-header-title" style="margin: 0;">
         Filtres
-        <button class="btn btn-sm btn-link text-reset" type="reset">
+        <button class="btn btn-sm btn-link text-reset" type="button" (click)="onReset()">
           <small>Effacer les filtres</small>
         </button>
       </h4>

@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TriEditComponent } from './pages/tri-edit/tri-edit.component';
 import { AgentsSelectModule } from '../agents/modules/agents-select/agents-select.module';
 import { TaxrefModule } from '../flores/modules/taxref/taxref.module';
+import { SpinnerModule } from 'src/app/shared/modules/spinner/spinner.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TaxrefModule } from '../flores/modules/taxref/taxref.module';
     TrisRoutingModule,
 
     AgentsSelectModule,
-    TaxrefModule
+    TaxrefModule,
+    SpinnerModule
   ]
 })
 export class TrisModule { }

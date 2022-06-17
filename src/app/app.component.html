@@ -1,18 +1,45 @@
-<header class="navbar navbar-light sticky-top bg-light flex-md-nowrap">
+<header class="navbar navbar-vertical fixed-start navbar-expand-lg navbar-light">
   <div class="container-fluid">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"> {{title}} </a>
+    <nav class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['tris']">
+              <span class="material-symbols-outlined"> table </span> Tris
+            </a>
+          </li>
+        </ul>
 
-    <a class="navbar-brand" href="#">
-     AppTri
-    </a>
+        <hr class="navbar-divider my-3">
 
-    <nav class="navbar-nav"></nav>
+        <h6 class="navbar-heading">
+          Administration
+        </h6>
 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['users']">
+              <span class="material-symbols-outlined"> Person </span> Utilisateurs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['agents']">
+              <span class="material-symbols-outlined"> Person </span> Agents
+            </a>
+          </li>
+        </ul>
+
+    </nav>
   </div>
 </header>
-<div class="main-content">
 
-  <div class="container">
+<div class="main-content">
+  <div class="container-fluid">
     <router-outlet></router-outlet>
   </div>
-
 </div>
