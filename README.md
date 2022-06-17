@@ -1,3 +1,2 @@
 # AppTri
 
-## Git Cmd
