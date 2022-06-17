@@ -11,7 +11,7 @@
     "compodoc:build": "compodoc -p tsconfig.doc.json",
     "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
     "compodoc:serve": "compodoc -s",
-    "deploy": "ng deploy --base-href=/app-tri-angular/"
+    "deploy": "ng build --output-path live --base-href /app-tri-angular/"
   },
   "private": true,
   "dependencies": {
